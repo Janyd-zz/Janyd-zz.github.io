@@ -1,25 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Hugo Cactus Theme</title>
-    <link>https://Janyd-zz.github.io/</link>
-    <description>Recent content on Hugo Cactus Theme</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 13 Apr 2023 21:04:03 +0800</lastBuildDate>
-    
-	<atom:link href="https://Janyd-zz.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Janyd&#39;s First blog</title>
-      <link>https://Janyd-zz.github.io/post/firstblog/</link>
-      <pubDate>Thu, 13 Apr 2023 21:04:03 +0800</pubDate>
-      
-      <guid>https://Janyd-zz.github.io/post/firstblog/</guid>
-      <description>##这是我的第一篇博客
-Hello, my blog!</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Janydの博客 - 在阅读中遇见自己</title>
+        <link>https://Janyd-zz.github.io/</link>
+        <description>早起的年轻人做的网站</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>852851198@qq.com (早起的年轻人)</managingEditor>
+            <webMaster>852851198@qq.com (早起的年轻人)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 14 Apr 2023 22:20:17 &#43;0800</lastBuildDate>
+            <atom:link href="https://Janyd-zz.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>First_post</title>
+    <link>https://Janyd-zz.github.io/first_post/</link>
+    <pubDate>Fri, 14 Apr 2023 22:20:17 &#43;0800</pubDate>
+    <author>早起的年轻人</author>
+    <guid>https://Janyd-zz.github.io/first_post/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>
