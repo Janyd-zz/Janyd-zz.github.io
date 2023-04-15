@@ -2,10 +2,10 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://Janyd-zz.github.io/</loc><lastmod>2023-04-14T22:20:17&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Janyd-zz.github.io/posts/</loc><lastmod>2023-04-14T22:20:17&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://Janyd-zz.github.io/first-post/</loc><lastmod>2023-04-14T22:20:17&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://Janyd-zz.github.io/post/firstblog/</loc><lastmod>2023-04-13T21:04:03&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://Janyd-zz.github.io/</loc><lastmod>2023-04-13T21:04:03&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://Janyd-zz.github.io/post/</loc><lastmod>2023-04-13T21:04:03&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://Janyd-zz.github.io/posts/</loc><lastmod>2021-04-13T22:20:17&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://Janyd-zz.github.io/first-post/</loc><lastmod>2021-04-13T22:20:17&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://Janyd-zz.github.io/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://Janyd-zz.github.io/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>
