@@ -4,27 +4,27 @@
         <link>https://Janyd-zz.github.io/posts/</link>
         <description>所有文章 | Janydの博客 - 在记录中成长自己</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>875392448@qq.com (Janyd)</managingEditor>
-            <webMaster>875392448@qq.com (Janyd)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 15 Apr 2023 22:08:21 &#43;0800</lastBuildDate><atom:link href="https://Janyd-zz.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>老板说新项目要上Adaptive_Autosar,我慌得一批</title>
-    <link>https://Janyd-zz.github.io/%E8%80%81%E6%9D%BF%E8%AF%B4%E6%96%B0%E9%A1%B9%E7%9B%AE%E8%A6%81%E4%B8%8Aadaptive_autosar%E6%88%91%E6%85%8C%E5%BE%97%E4%B8%80%E6%89%B9/</link>
-    <pubDate>Sat, 15 Apr 2023 22:08:21 &#43;0800</pubDate>
+            <webMaster>875392448@qq.com (Janyd)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 15 Mar 2022 22:08:21 &#43;0800</lastBuildDate><atom:link href="https://Janyd-zz.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>新项目要上Adaptive_Autosar,我慌得一批</title>
+    <link>https://Janyd-zz.github.io/2_%E6%96%B0%E9%A1%B9%E7%9B%AE%E8%A6%81%E4%B8%8Aadaptive_autosar%E6%88%91%E6%85%8C%E5%BE%97%E4%B8%80%E6%89%B9/</link>
+    <pubDate>Tue, 15 Mar 2022 22:08:21 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://Janyd-zz.github.io/%E8%80%81%E6%9D%BF%E8%AF%B4%E6%96%B0%E9%A1%B9%E7%9B%AE%E8%A6%81%E4%B8%8Aadaptive_autosar%E6%88%91%E6%85%8C%E5%BE%97%E4%B8%80%E6%89%B9/</guid>
-    <description><![CDATA[莫慌，淡定，先来看看Adaptive Autosar是个什么鬼……]]></description>
+    <guid>https://Janyd-zz.github.io/2_%E6%96%B0%E9%A1%B9%E7%9B%AE%E8%A6%81%E4%B8%8Aadaptive_autosar%E6%88%91%E6%85%8C%E5%BE%97%E4%B8%80%E6%89%B9/</guid>
+    <description><![CDATA[莫慌，淡定，先来看看Adaptive Autosar是个什么鬼]]></description>
 </item>
 <item>
     <title>Vector SIP Structure</title>
     <link>https://Janyd-zz.github.io/1_vector_sip_structure/</link>
-    <pubDate>Sat, 15 Apr 2023 20:27:31 &#43;0800</pubDate>
+    <pubDate>Tue, 15 Feb 2022 20:27:31 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://Janyd-zz.github.io/1_vector_sip_structure/</guid>
-    <description><![CDATA[hello 你好]]></description>
+    <description><![CDATA[1.Overview 2.Applications文件夹 Makesupport: 包括Makefile编译用到的文件以及一些bat脚本和工具。 SipAddon: Vector基于SIP创建的Demo配置]]></description>
 </item>
 <item>
     <title>开篇</title>
     <link>https://Janyd-zz.github.io/0_%E5%BC%80%E7%AF%87/</link>
     <pubDate>Tue, 13 Apr 2021 22:20:17 &#43;0800</pubDate>
-    <author>Janyd</author>
+    <author>作者</author>
     <guid>https://Janyd-zz.github.io/0_%E5%BC%80%E7%AF%87/</guid>
     <description><![CDATA[Welcome! 记录一位汽车电子攻城狮的挣扎之路。 码不停蹄，学无止境。 加油！]]></description>
 </item>
