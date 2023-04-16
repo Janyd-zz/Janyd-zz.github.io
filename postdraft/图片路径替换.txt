@@ -1,3 +1,0 @@
-/post_picture/1_picture
-
-../../static/post_picture/1_picture
