@@ -23,6 +23,14 @@
     <description><![CDATA[1.Overview ​ 2.Applications文件夹 ​ ​ Makesupport: 包括Makefile编译用到的文件以及一些bat脚本和工具。 ​ SipAddon: Vector基于SIP创建的De]]></description>
 </item>
 <item>
+    <title>STM32F103之GPIO工作原理</title>
+    <link>https://Janyd-zz.github.io/3_stm32f103%E4%B9%8Bio%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</link>
+    <pubDate>Mon, 19 Apr 2021 20:18:26 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://Janyd-zz.github.io/3_stm32f103%E4%B9%8Bio%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</guid>
+    <description><![CDATA[1. GPIO工作方式 STM32的 IO口可以由软件配置成 如下 8种模式： 1、 输入浮空 2、 输入上拉 3、 输入下拉 4、 模拟输入 5、 开漏输出 6、 推挽输出 7]]></description>
+</item>
+<item>
     <title>开篇</title>
     <link>https://Janyd-zz.github.io/0_%E5%BC%80%E7%AF%87/</link>
     <pubDate>Tue, 13 Apr 2021 22:20:17 &#43;0800</pubDate>
