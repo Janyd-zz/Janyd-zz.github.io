@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>网络管理 - 分类 - Janydの博客 - 在记录中成长自己</title>
+        <link>https://Janyd-zz.github.io/categories/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/</link>
+        <description>网络管理 - 分类 - Janydの博客 - 在记录中成长自己</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>875392448@qq.com (Janyd)</managingEditor>
+            <webMaster>875392448@qq.com (Janyd)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 12 Jun 2021 20:18:26 &#43;0800</lastBuildDate><atom:link href="https://Janyd-zz.github.io/categories/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/" rel="self" type="application/rss+xml" /><item>
+    <title>AUTOSAR网络管理与Transceiver/Controller关系</title>
+    <link>https://Janyd-zz.github.io/postdraft/4_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%8Etransceivercontroller%E5%85%B3%E7%B3%BB/</link>
+    <pubDate>Sat, 12 Jun 2021 20:18:26 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://Janyd-zz.github.io/postdraft/4_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%8Etransceivercontroller%E5%85%B3%E7%B3%BB/</guid>
+    <description><![CDATA[前言 在汽车行业CAN总线是应用场景最多的情况，本文也基于CAN总线进行网络管理与Transceiver/Controller关系梳理。 AUTOSAR NM]]></description>
+</item>
+<item>
+    <title>AUTOSAR网络管理与Transceiver/Controller关系</title>
+    <link>https://Janyd-zz.github.io/4_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%8Etransceivercontroller%E5%85%B3%E7%B3%BB/</link>
+    <pubDate>Sat, 12 Jun 2021 20:18:26 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://Janyd-zz.github.io/4_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%8Etransceivercontroller%E5%85%B3%E7%B3%BB/</guid>
+    <description><![CDATA[前言 在汽车行业CAN总线是应用场景最多的情况，本文也基于CAN总线进行网络管理与Transceiver/Controller关系梳理。 AUTOSAR NM]]></description>
+</item>
+</channel>
+</rss>

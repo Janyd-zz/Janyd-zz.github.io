@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Autosar - 标签 - Janydの博客 - 在记录中成长自己</title>
+        <title>AUTOSAR - 标签 - Janydの博客 - 在记录中成长自己</title>
         <link>https://Janyd-zz.github.io/tags/autosar/</link>
-        <description>Autosar - 标签 - Janydの博客 - 在记录中成长自己</description>
+        <description>AUTOSAR - 标签 - Janydの博客 - 在记录中成长自己</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>875392448@qq.com (Janyd)</managingEditor>
             <webMaster>875392448@qq.com (Janyd)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 15 Mar 2022 22:08:21 &#43;0800</lastBuildDate><atom:link href="https://Janyd-zz.github.io/tags/autosar/" rel="self" type="application/rss+xml" /><item>
     <title>Adaptive Autosar初探</title>
@@ -14,11 +14,35 @@
 </item>
 <item>
     <title>Vector SIP Structure</title>
+    <link>https://Janyd-zz.github.io/postdraft/1_vector_sip_structure/</link>
+    <pubDate>Tue, 15 Feb 2022 20:27:31 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://Janyd-zz.github.io/postdraft/1_vector_sip_structure/</guid>
+    <description><![CDATA[1.Overview ​ 2.Applications文件夹 ​ ​ Makesupport: 包括Makefile编译用到的文件以及一些bat脚本和工具。 ​ SipAddon: Vector基于SIP创建的De]]></description>
+</item>
+<item>
+    <title>Vector SIP Structure</title>
     <link>https://Janyd-zz.github.io/1_vector_sip_structure/</link>
     <pubDate>Tue, 15 Feb 2022 20:27:31 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://Janyd-zz.github.io/1_vector_sip_structure/</guid>
     <description><![CDATA[1.Overview ​ 2.Applications文件夹 ​ ​ Makesupport: 包括Makefile编译用到的文件以及一些bat脚本和工具。 ​ SipAddon: Vector基于SIP创建的De]]></description>
+</item>
+<item>
+    <title>AUTOSAR网络管理与Transceiver/Controller关系</title>
+    <link>https://Janyd-zz.github.io/postdraft/4_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%8Etransceivercontroller%E5%85%B3%E7%B3%BB/</link>
+    <pubDate>Sat, 12 Jun 2021 20:18:26 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://Janyd-zz.github.io/postdraft/4_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%8Etransceivercontroller%E5%85%B3%E7%B3%BB/</guid>
+    <description><![CDATA[前言 在汽车行业CAN总线是应用场景最多的情况，本文也基于CAN总线进行网络管理与Transceiver/Controller关系梳理。 AUTOSAR NM]]></description>
+</item>
+<item>
+    <title>AUTOSAR网络管理与Transceiver/Controller关系</title>
+    <link>https://Janyd-zz.github.io/4_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%8Etransceivercontroller%E5%85%B3%E7%B3%BB/</link>
+    <pubDate>Sat, 12 Jun 2021 20:18:26 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://Janyd-zz.github.io/4_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%8Etransceivercontroller%E5%85%B3%E7%B3%BB/</guid>
+    <description><![CDATA[前言 在汽车行业CAN总线是应用场景最多的情况，本文也基于CAN总线进行网络管理与Transceiver/Controller关系梳理。 AUTOSAR NM]]></description>
 </item>
 </channel>
 </rss>
