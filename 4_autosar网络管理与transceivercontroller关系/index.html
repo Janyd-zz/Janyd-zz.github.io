@@ -130,11 +130,11 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p01.png"
-        data-srcset="../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p01.png, ../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p01.png 1.5x, ../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p01.png 2x"
+        data-src="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p01.png"
+        data-srcset="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p01.png, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p01.png 1.5x, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p01.png 2x"
         data-sizes="auto"
-        alt="../../static/post_picture/网络管理/4_/p01.png"
-        title="../../static/post_picture/网络管理/4_/p01.png" /></p>
+        alt="/post_picture/网络管理/4_/p01.png"
+        title="/post_picture/网络管理/4_/p01.png" /></p>
 <p>如上图，当BAT（等价于KL30，本例不用KL15）给Transceiver1145供电后，Transceiver1145的INH引脚激活3V电源管理模块，进而给主芯片供电，当主芯片供电以后，程序开始运行，但此时网络处于BSM（Bus Sleep Mode），ECU并不能立马外发报文，需要对唤醒事件进行有效性验证，避免因总线抖动或者其他干扰造成的ECU无效唤醒。</p>
 <p>如果程序（上层模块，如CANNM）想要识别当前是否收到网络管理报文应该具备什么条件？</p>
 <p>如果ECU想正常的收发报文需要Transceiver1145和Controller进入各自的工作状态。先说Transceiver1145，对于Transceiver1145需要切换到Normal Mode（通过SPI发送Normal指令），此时Transceiver1145才能将模拟信号和数字信号进行转换；虽然Transceiver1145可以将模拟信号和数字信号进行转换，但是此时ECU还不能将报文传输给上层模块，即此时还不能正常的收发报文，因为Controller没有正常工作，只有当Controller也正常工作以后，ECU才能正常的收发报文。</p>
@@ -143,11 +143,11 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p02.png"
-        data-srcset="../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p02.png, ../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p02.png 1.5x, ../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p02.png 2x"
+        data-src="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p02.png"
+        data-srcset="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p02.png, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p02.png 1.5x, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p02.png 2x"
         data-sizes="auto"
-        alt="../../static/post_picture/网络管理/4_/p02.png"
-        title="../../static/post_picture/网络管理/4_/p02.png" /></p>
+        alt="/post_picture/网络管理/4_/p02.png"
+        title="/post_picture/网络管理/4_/p02.png" /></p>
 <p>如上图，Transceiver1145在初始化或者handler程序中检查唤醒源，判断到上电或者CAN总线干扰事件时会通知EcuM有唤醒事件，之后EcuM通过CanIf模块调用CanTrcv_CheckWakeup检查唤醒源。如果EcuM使能了唤醒源的检查，则EcuM调用EcuM_StartWakeupSources接口，该操作的实质是使得Controller进入Start状态，至此Transceiver1145和Controller均进入了对应的工作状态，ECU具备了收发报文的能力。注意，Controller需要从STOPPED状态切换到STARTED状态。</p>
 <p>参考资料：TJA1145 Rev. 4 — 09 May 2018 Product data sheet.pdf</p>
 </div><div class="post-footer" id="post-footer">
