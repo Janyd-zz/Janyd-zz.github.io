@@ -23,6 +23,14 @@
     <description><![CDATA[1.Overview ​ 2.Applications文件夹 ​ ​ Makesupport: 包括Makefile编译用到的文件以及一些bat脚本和工具。 ​ SipAddon: Vector基于SIP创建的De]]></description>
 </item>
 <item>
+    <title>网络管理为什么需要ECU保持激活一段时间</title>
+    <link>https://Janyd-zz.github.io/5_%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81ecu%E4%BF%9D%E6%8C%81%E6%BF%80%E6%B4%BB%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4/</link>
+    <pubDate>Tue, 15 Jun 2021 20:18:26 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://Janyd-zz.github.io/5_%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81ecu%E4%BF%9D%E6%8C%81%E6%BF%80%E6%B4%BB%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4/</guid>
+    <description><![CDATA[前言 上一篇中讲只有Transceiver、Controller处于正常工作模式以后才能有效的收发报文，进而才能识别报文的类型（NM Messa]]></description>
+</item>
+<item>
     <title>AUTOSAR网络管理与Transceiver/Controller关系</title>
     <link>https://Janyd-zz.github.io/4_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%8Etransceivercontroller%E5%85%B3%E7%B3%BB/</link>
     <pubDate>Sat, 12 Jun 2021 20:18:26 &#43;0800</pubDate>
