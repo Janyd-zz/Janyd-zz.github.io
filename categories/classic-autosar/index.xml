@@ -4,7 +4,15 @@
         <link>https://Janyd-zz.github.io/categories/classic-autosar/</link>
         <description>Classic AUTOSAR - 分类 - Janydの博客 - 在记录中成长自己</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>875392448@qq.com (Janyd)</managingEditor>
-            <webMaster>875392448@qq.com (Janyd)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 15 Feb 2022 20:27:31 &#43;0800</lastBuildDate><atom:link href="https://Janyd-zz.github.io/categories/classic-autosar/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>875392448@qq.com (Janyd)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 29 Mar 2022 20:18:26 &#43;0800</lastBuildDate><atom:link href="https://Janyd-zz.github.io/categories/classic-autosar/" rel="self" type="application/rss+xml" /><item>
+    <title>Autosar概念：Callout与Callback</title>
+    <link>https://Janyd-zz.github.io/9_autosar%E6%A6%82%E5%BF%B5callout%E4%B8%8Ecallback/</link>
+    <pubDate>Tue, 29 Mar 2022 20:18:26 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://Janyd-zz.github.io/9_autosar%E6%A6%82%E5%BF%B5callout%E4%B8%8Ecallback/</guid>
+    <description><![CDATA[在Autosar里面，Callout与Callback分别是什么？两者区别是什么？ 1 Callback Autosar规范里是如何定义“Callback”的，]]></description>
+</item>
+<item>
     <title>Vector SIP Structure</title>
     <link>https://Janyd-zz.github.io/1_vector_sip_structure/</link>
     <pubDate>Tue, 15 Feb 2022 20:27:31 &#43;0800</pubDate>

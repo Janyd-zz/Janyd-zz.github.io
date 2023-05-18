@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Can Wakeup时序 - Janydの博客 - 在记录中成长自己</title><meta name="Description" content="奋斗的年轻人做的网站"><meta property="og:title" content="Can Wakeup时序" />
+<meta property="og:description" content="工程项目中，有些问题与ECU的上电时序相关，如果不清楚ECU的唤醒时序，那么网络唤醒也会迷迷糊糊，查问题根本抓不住重点。举个例子，项目中一般" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Janyd-zz.github.io/8_can-wakeup%E6%97%B6%E5%BA%8F/" />
+<meta property="og:image" content="https://Janyd-zz.github.io/head_xiaoxin.jpg"/>
+<meta property="article:published_time" content="2021-06-29T20:18:26+08:00" />
+<meta property="article:modified_time" content="2021-06-29T15:58:26+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://Janyd-zz.github.io/head_xiaoxin.jpg"/>
+
+<meta name="twitter:title" content="Can Wakeup时序"/>
+<meta name="twitter:description" content="工程项目中，有些问题与ECU的上电时序相关，如果不清楚ECU的唤醒时序，那么网络唤醒也会迷迷糊糊，查问题根本抓不住重点。举个例子，项目中一般"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Janyd-zz.github.io/8_can-wakeup%E6%97%B6%E5%BA%8F/" /><link rel="prev" href="https://Janyd-zz.github.io/7_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%80%E5%B8%A7%E6%9C%89%E6%95%88%E7%9A%84%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E6%8A%A5%E6%96%87%E6%98%AF%E5%A6%82%E4%BD%95%E5%94%A4%E9%86%92%E7%BD%91%E7%BB%9C%E7%9A%84/" /><link rel="next" href="https://Janyd-zz.github.io/0_%E5%BC%80%E7%AF%87/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Can Wakeup时序",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/Janyd-zz.github.io\/8_can-wakeup%E6%97%B6%E5%BA%8F\/"
+        },"image": ["https:\/\/Janyd-zz.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AUTOSAR","wordcount":  3924 ,
+        "url": "https:\/\/Janyd-zz.github.io\/8_can-wakeup%E6%97%B6%E5%BA%8F\/","datePublished": "2021-06-29T20:18:26+08:00","dateModified": "2021-06-29T15:58:26+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Janyd","logo": "https:\/\/Janyd-zz.github.io\/images\/head_xiaoxin.jpg"},"author": {
+                "@type": "Person",
+                "name": "Janyd"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Janydの博客 - 在记录中成长自己"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Janydの博客 - 在记录中成长自己"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Can Wakeup时序</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Janyd</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>网络管理</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-06-29">2021-06-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3924 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id="/8_can-wakeup%E6%97%B6%E5%BA%8F/" class="leancloud_visitors" data-flag-title="Can Wakeup时序">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-transceiver和controller的唤醒时序">1 Transceiver和Controller的唤醒时序</a>
+      <ul>
+        <li><a href="#1transceiver何时进入normal-mode">1、Transceiver何时进入Normal Mode</a></li>
+        <li><a href="#2controller对应的状态">2、Controller对应的状态</a></li>
+        <li><a href="#3controller何时进入started-mode">3、Controller何时进入Started Mode</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-callout实现示例">2 Callout实现示例</a>
+      <ul>
+        <li><a href="#ecum_checkwakeup示例">EcuM_CheckWakeup(）示例</a></li>
+        <li><a href="#ecum_startwakeupsources示例">EcuM_StartWakeupSources()示例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>工程项目中，有些问题与ECU的上电时序相关，如果不清楚ECU的唤醒时序，那么网络唤醒也会迷迷糊糊，查问题根本抓不住重点。举个例子，项目中一般会有这样的需求：节点外发第一帧网络管理报文时间必须＜Twakeup_start（比如：150ms）。如果不清楚ECU的上电时序，通信栈的打开顺序，此类问题怎么查？</p>
+<p>本文以Can总线为切入点，聊一下Can的唤醒时序问题。本文主要讲解Transceiver和Controller的唤醒时机，因为只有Transceiver和Controller这两个硬件均进入正常的工作状态，收/发报文才能成为可能。</p>
+<p>**提示：**基于NXP TJA1145讨论</p>
+<h1 id="1-transceiver和controller的唤醒时序">1 Transceiver和Controller的唤醒时序</h1>
+<p>还是前面强调的一个点：<strong>ECU唤醒是网络唤醒的必要不充分条件</strong>，即：ECU唤醒并不意味着网络能唤醒，而网络被唤醒说明ECU一定先被唤醒了。</p>
+<p>当Can总线有一帧报文到来时，不管是否是网络管理报文，或者只是一个干扰（符合Transceiver的wake-up pattern），Transceiver即可由<strong>Sleep Mode切换到Standby Mode</strong>，进而给Transceiver和主芯片供电(前面已经具体解释过)。Transceiver状态切换如下所示，而任意一帧报文或是总线干扰就是这里的“wake-up event”。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/8_/p01.png"
+        data-srcset="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/8_/p01.png, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/8_/p01.png 1.5x, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/8_/p01.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/网络管理/8_/p01.png"
+        title="/post_picture/网络管理/8_/p01.png" /></p>
+<p>你可能注意到，刚才说：Transceiver由Sleep Mode切换到Standby Mode。为什么不是Off Mode切换到Standby Mode?一般的设计中，Transceiver常与KL30电连接，即连着蓄电池，就是说Transceiver是常供电的，所以，Transceiver几乎不会切换到Off Mode。之所以从Sleep Mode切换到Standby Mode，是因为在ECU下电时，会通过SPI指令将Transceiver由Normal Mode切到Sleep Mode。</p>
+<p>**注意：**本文不讨论使用TJA1145 Transceiver过滤功能的情况。如果使用其过滤功能，可以通过过滤CANID，让指定的报文唤醒TJA1145 Transceiver，进而给Transceiver和主芯片供电。</p>
+<p>Can总线可以收/发报文必须建立在Transceiver和Controller都进入正常的工作状态，只有这样才能谈第一帧网络管理报文外发的问题。</p>
+<p>Transceiver和Controller进入各自的正常工作状态是指：<strong>Transceiver进入Normal Mode，Controller进入Started Mode</strong>。</p>
+<h2 id="1transceiver何时进入normal-mode">1、Transceiver何时进入Normal Mode</h2>
+<p>当Transceiver进入Standby Mode时，Transceiver的INH Pin被拉低使能，3V和5V电源管理模块使能，主芯片上电。这意味着什么呢？即从此刻起，软件开始被执行，即从启动代码一步一步地执行到Application的main程序。在执行程序初始化的过程中，<strong>执行到Transceiver的初始化程序时，可以通过SPI指令获取ECU唤醒的原因，且在此时会通过SPI指令让Transceiver进入Normal Mode</strong>，这就是Transceiver进入Normal Mode的时机。</p>
+<p>因为本文讨论的Transceiver是NXP TJA1145，因此，在初始化的流程中，需要确保SPI的初始化在Transceiver前面，不然无法通过SPI获取NXP TJA1145的信息，也无法发送SPI指令。</p>
+<p>**提示：**NXP TJA1145通过SPI控制状态转移。</p>
+<h2 id="2controller对应的状态">2、Controller对应的状态</h2>
+<p>个人理解，<strong>Controller是Autosar对Can驱动模块的抽象名称，因为使用的芯片不同，对应Can驱动模块的模式叫法也不同。Controller由CanIf模块直接操作</strong>，对应的模式如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="k">typedef</span> <span class="k">enum</span> 
+<span class="p">{</span>
+  <span class="n">CANIF_CS_UNINIT</span> <span class="o">=</span> <span class="mi">0u</span><span class="p">,</span>
+  <span class="n">CANIF_CS_STOPPED</span><span class="p">,</span>
+  <span class="n">CANIF_CS_STARTED</span><span class="p">,</span>
+  <span class="n">CANIF_CS_SLEEP</span>
+<span class="p">}</span> <span class="n">CanIf_ControllerModeType</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>**举例：**RH850中，MCAN的模式有：Start Mode (Normal Running Mode)、Stop Mode、Power Down Mode、BusOff、Silent Mode等。CanIf通过调用CanIf_SetControllerMode()控制Controller的模式。</p>
+<h2 id="3controller何时进入started-mode">3、Controller何时进入Started Mode</h2>
+<p>当Transceiver初始化的时候，通过SPI指令读取对应Transceiver的状态寄存器即可获取唤醒的原因，即获取ECU唤醒的原因。在Autosar里，将Transceiver称为WakeupSources，当然WakeupSources可以有多个，最多32个。</p>
+<p>现在，Transceiver已经进入了Normal Mode，就等Controller进入Started Mode了，否则还是不能将Transceiver接收的报文传给Controller，也就无法验证唤醒源的有效性，就更别提使能网络管理了。</p>
+<p>既然Transceiver知道是什么原因唤醒的ECU（有对应的寄存器存储唤醒事件状态，如下所示），那么Transceiver就得有义务将唤醒ECU的原因告诉相关模块。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/8_/p02.png"
+        data-srcset="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/8_/p02.png, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/8_/p02.png 1.5x, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/8_/p02.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/网络管理/8_/p02.png"
+        title="/post_picture/网络管理/8_/p02.png" /></p>
+<p>Transceiver告诉谁比较合适呢？EcuM模块。那怎么告诉EcuM呢？告诉EcuM唤醒事件之前，需要先确认唤醒源的真实性，即EcuM是否配置了这个唤醒源，实质就是调用接口EcuM_CheckWakeup()，让EcuM去识别这个唤醒事件是不是你配置的。但是EcuM只是管这个事，具体的验证还需要“底层人民”帮其验证，也就是Transceiver或者Controller。既然验证就一层一层来吧，EcuM_CheckWakeup()</p>
+<p>-&gt;CanIf_CheckWakeup()</p>
+<p>-&gt;CanTrcv_XX_CheckWakeup()/CanController_CheckWakeup()。**CanTrcv_XX_CheckWakeup()<strong>或者</strong>CanController_CheckWakeup()**接口属于驱动接口，需要根据实际的项目适配，即该接口是非标的。</p>
+<p>如果唤醒事件的检查有效，那就需要上报该事件了。通过**EcuM_SetWakeupEvent()**这个接口。这个接口就将唤醒事件挂起，实质就是设置一个全局变量的某个bit，前面说了，唤醒源最多可以设置32个，即用一个uint32的全局变量记录唤醒源，每个bit表示一个唤醒源。</p>
+<p>EcuM_SetWakeupEvent()接口调用以后，对应的唤醒事件被挂起，EcuM的main函数在下一次轮询中就能识别到唤醒事件，进而调用自己的Callout函数<strong>EcuM_StartWakeupSources()</strong> ，调用这个Callout干啥呢？就是想让Controller进入Started Mode。知道了最终的目的，但是也不能太急，Autosar是分层的，哪个模块干什么样的活是有分工的，不能越权。</p>
+<p>EcuM想切换Controller状态，需要调用**CanSM_StartWakeupSources()**接口，因为CanSM模块统筹Transceiver和Controller的状态管理，这里不是说不能直接调用CanIf模块去切换Transceiver和Controller的状态，而是让CanSM管更合适。说白了，按照Autosar的架构开发，就别穿插太多自己的想法。</p>
+<p>CanSM_StartWakeupSources()接口此时会调用**CanIf_SetControllerMode()**接口，让Controller进入Started Mode。但是这里有一个点需要注意：Controller必须由Stopped Mode切换到Started Mode。这意味着，需要调用两次CanIf_SetControllerMode()，切换两次Controller状态，即Stopped Mode切换到Started Mode。</p>
+<p>实际，CanSM_StartWakeupSources()接口不仅会调用CanIf_SetControllerMode()接口，还会调用CanIf_SetTrcvMode()接口。就是为确保Transceiver和Controller进入“Normal”工作状态。</p>
+<p>至此，Transceiver和Controller切换到了我们预期的工作状态，在此刻起，意味着通信栈具备了收/发报文的条件，但是至于何时才能发送报文到总线，还得取决于后续模式管控模块的Action。</p>
+<h1 id="2-callout实现示例">2 Callout实现示例</h1>
+<p>上述提到了很多Callout函数，Callout是啥？可以参考前文[Autosar概念：Callout与Callback，请不要混肴]。这些Callout函数，Autosar并没有给具体的实现，需要开发人员自行实现：</p>
+<h2 id="ecum_checkwakeup示例">EcuM_CheckWakeup(）示例</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="n">FUNC</span><span class="p">(</span><span class="kt">void</span><span class="p">,</span> <span class="n">ECUM_CODE</span><span class="p">)</span> <span class="n">EcuM_CheckWakeup</span><span class="p">(</span><span class="n">EcuM_WakeupSourceType</span> <span class="n">wakeupSource</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cp">#</span><span class="cp">if (ECUM_CHECKWAKEUPTIMEOFWAKEUPSOURCELIST == STD_ON)</span><span class="cp">
+</span><span class="cp"></span>  <span class="cm">/* Do not remove the following function call. It is necessary for the CheckWakeup timeout mechanism */</span>
+  <span class="n">EcuM_StartCheckWakeup</span><span class="p">(</span><span class="n">wakeupSource</span><span class="p">)</span><span class="p">;</span>
+<span class="cp">#</span><span class="cp">endif</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">if (ECUM_ALARM_CLOCK_PRESENT == STD_ON)</span><span class="cp">
+</span><span class="cp"></span>  <span class="k">if</span><span class="p">(</span><span class="p">(</span><span class="n">ECUM_ALARM_WKSOURCE</span> <span class="o">&amp;</span> <span class="n">wakeupSource</span><span class="p">)</span> <span class="o">!</span><span class="o">=</span> <span class="mi">0u</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">EcuM_AlarmCheckWakeup</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="cp">#</span><span class="cp">endif</span><span class="cp">
+</span><span class="cp"></span><span class="cm">/**********************************************************************************************************************
+</span><span class="cm"> * DO NOT CHANGE THIS COMMENT!           &lt;USERBLOCK EcuM_CheckWakeup&gt;                       DO NOT CHANGE THIS COMMENT!
+</span><span class="cm">*********************************************************************************************************************/</span>
+<span class="cp">#</span><span class="cp">if (ECUM_USE_DUMMY_STATEMENT == STD_ON)</span><span class="cp">
+</span><span class="cp"></span>  <span class="cm">/* dummy assignment to prevent compiler warnings on most of the compilers. */</span>
+  <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">wakeupSource</span><span class="p">;</span> <span class="cm">/* PRQA S 3112 */</span> <span class="cm">/* MD_EcuM_3112 */</span>
+<span class="cp">#</span><span class="cp">endif</span><span class="cp">
+</span><span class="cp"></span>  <span class="cm">/* Add implementation of EcuM_CheckWakeup() */</span>
+  <span class="k">return</span><span class="p">;</span>
+<span class="cm">/**********************************************************************************************************************
+</span><span class="cm"> * DO NOT CHANGE THIS COMMENT!           &lt;/USERBLOCK&gt;                                       DO NOT CHANGE THIS COMMENT! *********************************************************************************************************************/</span>
+<span class="p">}</span> <span class="cm">/* End of EcuM_CheckWakeup() */</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这里需要注意，对于如下5种唤醒事件无需检查其有效性，可直接将唤醒事件挂起，等待EcuM的进一步处理：</p>
+<p><strong>&gt;</strong> ECUM_WKSOURCE_POWER</p>
+<p><strong>&gt;</strong> ECUM_WKSOURCE_RESET</p>
+<p><strong>&gt;</strong> ECUM_WKSOURCE_INTERNAL_RESET</p>
+<p><strong>&gt;</strong> ECUM_WKSOURCE_INTERNAL_WDG</p>
+<p><strong>&gt;</strong> ECUM_WKSOURCE_EXTERNAL_WDG</p>
+<h2 id="ecum_startwakeupsources示例">EcuM_StartWakeupSources()示例</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="n">FUNC</span><span class="p">(</span><span class="kt">void</span><span class="p">,</span> <span class="n">ECUM_CODE</span><span class="p">)</span> <span class="n">EcuM_StartWakeupSources</span><span class="p">(</span><span class="n">EcuM_WakeupSourceType</span> <span class="n">wakeupSource</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cm">/**********************************************************************************************************************
+</span><span class="cm"> * DO NOT CHANGE THIS COMMENT!           &lt;USERBLOCK EcuM_StartWakeupSources&gt;                DO NOT CHANGE THIS COMMENT!
+</span><span class="cm">*********************************************************************************************************************/</span>
+<span class="cp">#</span><span class="cp">if (ECUM_USE_DUMMY_STATEMENT == STD_ON)</span><span class="cp">
+</span><span class="cp"></span>  <span class="cm">/* dummy assignment to prevent compiler warnings on most of the compilers. */</span>
+  <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">wakeupSource</span><span class="p">;</span> <span class="cm">/* PRQA S 1338, 2983, 3112 */</span> <span class="cm">/* MD_MSR_DummyStmt */</span>
+<span class="cp">#</span><span class="cp">endif</span><span class="cp">
+</span><span class="cp"></span>  <span class="cm">/* Add implementation of EcuM_StartWakeupSources() */</span>
+  <span class="k">return</span><span class="p">;</span>
+<span class="cm">/**********************************************************************************************************************
+</span><span class="cm"> * DO NOT CHANGE THIS COMMENT!           &lt;/USERBLOCK&gt;                                       DO NOT CHANGE THIS COMMENT!
+</span><span class="cm">*********************************************************************************************************************/</span>
+<span class="p">}</span> <span class="cm">/* End of EcuM_StartWakeupSources() */</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>参考资料</strong>：</p>
+<p>AUTOSAR_SWS_ECUStateManager.pdf</p>
+<p>AUTOSAR_SWS_CANInterface.pdf</p>
+<p>TJA1145 High-speed CAN transceiver for partial networking.pdf</p>
+<p>MICROSAR CAN Driver Technical Reference Renesas RH850 P1x-C MCAN Version 4.04.02.pdf</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-06-29</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/autosar/">AUTOSAR</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/7_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%80%E5%B8%A7%E6%9C%89%E6%95%88%E7%9A%84%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E6%8A%A5%E6%96%87%E6%98%AF%E5%A6%82%E4%BD%95%E5%94%A4%E9%86%92%E7%BD%91%E7%BB%9C%E7%9A%84/" class="prev" rel="prev" title="Autosar网络管理：一帧有效的网络管理报文是如何唤醒网络的？"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Autosar网络管理：一帧有效的网络管理报文是如何唤醒网络的？</a>
+            <a href="/0_%E5%BC%80%E7%AF%87/" class="next" rel="next" title="开篇">开篇<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Janyd</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"valine":{"appId":"cIRpq8figzQxyGz5LyAdUahJ-gzGzoHsz","appKey":"T9YWfgGhznKaXXx7TCLxzS3C","avatar":"robohash","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":true,"highlight":true,"lang":true,"meta":true,"pageSize":true,"placeholder":"说点什么吧...","recordIP":null,"visitor":true}},"data":{"id-1":"奋斗的年轻人","id-2":"奋斗的年轻人"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
