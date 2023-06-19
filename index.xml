@@ -31,20 +31,20 @@
     <description><![CDATA[1.Overview ​ 2.Applications文件夹 ​ ​ Makesupport: 包括Makefile编译用到的文件以及一些bat脚本和工具。 ​ SipAddon: Vector基于SIP创建的De]]></description>
 </item>
 <item>
-    <title>Can Wakeup时序</title>
-    <link>https://Janyd-zz.github.io/8_can-wakeup%E6%97%B6%E5%BA%8F/</link>
+    <title>Autosar网络管理：NM状态机</title>
+    <link>https://Janyd-zz.github.io/8_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86nm%E7%8A%B6%E6%80%81%E6%9C%BA/</link>
     <pubDate>Tue, 29 Jun 2021 20:18:26 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://Janyd-zz.github.io/8_can-wakeup%E6%97%B6%E5%BA%8F/</guid>
-    <description><![CDATA[工程项目中，有些问题与ECU的上电时序相关，如果不清楚ECU的唤醒时序，那么网络唤醒也会迷迷糊糊，查问题根本抓不住重点。举个例子，项目中一般]]></description>
+    <guid>https://Janyd-zz.github.io/8_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86nm%E7%8A%B6%E6%80%81%E6%9C%BA/</guid>
+    <description><![CDATA[提示：以CAN总线为例 1、主动唤醒和被动唤醒 主动唤醒：上层SWC主动请求网络，主动唤醒会使得上层主动调用CanNm_NetworkReque]]></description>
 </item>
 <item>
-    <title>Autosar网络管理：一帧有效的网络管理报文是如何唤醒网络的？</title>
-    <link>https://Janyd-zz.github.io/7_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%80%E5%B8%A7%E6%9C%89%E6%95%88%E7%9A%84%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E6%8A%A5%E6%96%87%E6%98%AF%E5%A6%82%E4%BD%95%E5%94%A4%E9%86%92%E7%BD%91%E7%BB%9C%E7%9A%84/</link>
+    <title>Autosar网络管理：CAN Wakeup</title>
+    <link>https://Janyd-zz.github.io/7_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86can-wakeup/</link>
     <pubDate>Fri, 25 Jun 2021 20:18:26 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://Janyd-zz.github.io/7_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%80%E5%B8%A7%E6%9C%89%E6%95%88%E7%9A%84%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E6%8A%A5%E6%96%87%E6%98%AF%E5%A6%82%E4%BD%95%E5%94%A4%E9%86%92%E7%BD%91%E7%BB%9C%E7%9A%84/</guid>
-    <description><![CDATA[前面我们聊过唤醒源的Check和Set，可以回顾前文[Autosar网络管理：唤醒源的Check和Set]。本文我们接着探究一帧有效的网络管]]></description>
+    <guid>https://Janyd-zz.github.io/7_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86can-wakeup/</guid>
+    <description><![CDATA[ECU唤醒是网络唤醒的前提条件，ECU唤醒并不一定网络唤醒，如果网络激活（进入Normal Mode）则ECU一定唤醒（RUN模式）。 1 硬件唤]]></description>
 </item>
 <item>
     <title>Autosar网络管理：唤醒源的Check和Set</title>
