@@ -99,30 +99,30 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p01.png"
-        data-srcset="../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p01.png, ../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p01.png 1.5x, ../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p01.png 2x"
+        data-src="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p01.png"
+        data-srcset="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p01.png, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p01.png 1.5x, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p01.png 2x"
         data-sizes="auto"
-        alt="../../static/post_picture/网络管理/6_/p01.png"
-        title="../../static/post_picture/网络管理/6_/p01.png" /></p>
+        alt="/post_picture/网络管理/6_/p01.png"
+        title="/post_picture/网络管理/6_/p01.png" /></p>
 <p>也正是因为CAN Controller和CAN Transceiver关系如此，所以当有Can Bus的唤醒事件时，EcuM分不清楚Can Bus唤醒是CAN Controller发现的还是CAN Transceiver发现的，如果EcuM想知道谁发现的，就需要问问CAN Controller和CAN Transceiver，你俩谁发现的？EcuM怎么问呢？不怕CAN Controller和CAN Transceiver不说，EcuM通过EcuM_CheckWakeup()一查，是CAN Controller还是CAN Transceiver，EcuM就清楚了。EcuM要彻查到底谁发现的唤醒事件，它自己只会传“圣旨”，即调用EcuM_CheckWakeup()，实际调查，还是依靠地方官员（CanIf、CAN Controller or CAN Transceiver）。</p>
 <h2 id="1中断方式check唤醒事件"><strong>1、中断方式Check唤醒事件</strong></h2>
 <p>当外部中断唤醒事件到来时，可以是Can Controller中断，也可以是CAN Transceiver中断。如下展示了EcuM&quot;圣旨&quot;的传递过程（Check），此过程中，中断例程中主动调用EcuM的EcuM_CheckWakeup()，让EcuM检查，此方式不拖泥带水，响应迅速。</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p02.png"
-        data-srcset="../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p02.png, ../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p02.png 1.5x, ../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p02.png 2x"
+        data-src="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p02.png"
+        data-srcset="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p02.png, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p02.png 1.5x, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p02.png 2x"
         data-sizes="auto"
-        alt="../../static/post_picture/网络管理/6_/p02.png"
-        title="../../static/post_picture/网络管理/6_/p02.png" /></p>
+        alt="/post_picture/网络管理/6_/p02.png"
+        title="/post_picture/网络管理/6_/p02.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p03.png"
-        data-srcset="../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p03.png, ../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p03.png 1.5x, ../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p03.png 2x"
+        data-src="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p03.png"
+        data-srcset="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p03.png, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p03.png 1.5x, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p03.png 2x"
         data-sizes="auto"
-        alt="../../static/post_picture/网络管理/6_/p03.png"
-        title="../../static/post_picture/网络管理/6_/p03.png" /></p>
+        alt="/post_picture/网络管理/6_/p03.png"
+        title="/post_picture/网络管理/6_/p03.png" /></p>
 <h2 id="2轮询方式check唤醒事件"><strong>2、轮询方式Check唤醒事件</strong></h2>
 <p>相比于中断方式，Polling方式就“磨叽”了，CAN Controller和CAN Transceiver都不主动告诉EcuM，等EcuM检查，就像小学生考试成绩，考不好不会主动告诉家长，都是家长想起来，主动问自己家熊孩子考的咋样一样一样的道理。EcuM于是就在自己的Task（比如：10ms）中一个一个检查CAN Controller和CAN Transceiver，如下所示：</p>
 <p>不管轮询还是中断方式，唤醒事件都是“谁发现谁举报”的原则，即谁发现了唤醒事件，谁有责任告诉EcuM(即调用EcuM_CheckWakeup())，这就是Set部分。</p>
@@ -130,11 +130,11 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p04.png"
-        data-srcset="../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p04.png, ../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p04.png 1.5x, ../../static/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p04.png 2x"
+        data-src="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p04.png"
+        data-srcset="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p04.png, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p04.png 1.5x, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/6_/p04.png 2x"
         data-sizes="auto"
-        alt="../../static/post_picture/网络管理/6_/p04.png"
-        title="../../static/post_picture/网络管理/6_/p04.png" /></p>
+        alt="/post_picture/网络管理/6_/p04.png"
+        title="/post_picture/网络管理/6_/p04.png" /></p>
 <h1 id="硬件可以check">硬件可以Check</h1>
 <p>实际，EcuM并不关心到底谁发现的，<strong>它只关心是哪个网络需要唤醒</strong>，<strong>并将其传递给ComM</strong>。</p>
 <p>如果思考一个问题：“如果CAN Transceiver可以Filter，确保了特定帧唤醒，EcuM是不是可以不用Check?”答：个人赞同。</p>
