@@ -83,11 +83,10 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#1主动唤醒和被动唤醒">1、主动唤醒和被动唤醒</a></li>
+    <li><a href="#2网络被动节点">2、网络被动节点</a></li>
+    <li><a href="#3网络主动节点">3、网络主动节点</a>
       <ul>
-        <li><a href="#1主动唤醒和被动唤醒">1、主动唤醒和被动唤醒</a></li>
-        <li><a href="#2网络被动节点">2、网络被动节点</a></li>
-        <li><a href="#3网络主动节点">3、网络主动节点</a></li>
         <li><a href="#1正常发送模式没有快速发送功能网络被动唤醒">1.正常发送模式（没有快速发送功能，网络被动唤醒）</a></li>
         <li><a href="#2正常发送模式没有快速发送功能网络主动唤醒">2.正常发送模式（没有快速发送功能，网络主动唤醒）</a></li>
         <li><a href="#3有快速发送功能网络被动唤醒">3.有快速发送功能（网络被动唤醒）</a></li>
@@ -97,7 +96,7 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p><strong>提示</strong>：以CAN总线为例</p>
-<h2 id="1主动唤醒和被动唤醒">1、主动唤醒和被动唤醒</h2>
+<h1 id="1主动唤醒和被动唤醒">1、主动唤醒和被动唤醒</h1>
 <p><strong>主动唤醒</strong>：上层SWC主动请求网络，主动唤醒会使得上层主动调用CanNm_NetworkRequest()接口唤醒网络。常见的主动唤醒源有：KL15信号，定时器、传感器等。</p>
 <ul>
 <li>定时器：节点休眠前设定时间，比如：每2h节点主动醒来。</li>
@@ -106,7 +105,7 @@
 <p>某些节点没有KL15硬线连接，可以通过接收特定的信号（KL15信号等），主动请求网络，调用CanNm_NetworkRequest()接口进入Normal Operation State状态。</p>
 <p><strong>被动唤醒</strong>：由其他节点的特定行为触发本节点的唤醒，比如：<strong>收到其他节点的有效网络管理报文</strong>被动唤醒，调用CanNm_PassiveStartup()接口唤醒网络。</p>
 <p>注意：<strong>不管节点的网络类型是被动的还是主动的，均可以被动唤醒。被动网络节点被动唤醒不会外发网络管理报文，主动网络节点被动唤醒会外发网络管理报文。</strong></p>
-<h2 id="2网络被动节点">2、网络被动节点</h2>
+<h1 id="2网络被动节点">2、网络被动节点</h1>
 <p>网络被动节点的网络管理报文收/发行为及时间参数如下所示：</p>
 <p><img
         class="lazyload"
@@ -125,7 +124,7 @@
 <li><strong>NM-Timeout Timer</strong>：进入Repeat Message State时，启动该时间，比如：3000ms，在此期间接收到网络管理报文或者超时，重置该时间。进入Ready Sleep State状态，收到网络管理报文，重置该时间，如果收不到网络管理报文，超时后，进入Pre Bus-Sleep Mode状态。</li>
 <li><strong>Wait Bus Sleep Timer</strong>：在Pre Bus-Sleep Mode状态，收不到网络管理报文，该时间超时后进入Bus Sleep Mode，比如：4000ms。Pre Bus-Sleep Mode状态下，如果收到网络管理报文或者网络请求，则重新进入Repeat Message State。</li>
 </ul>
-<h2 id="3网络主动节点">3、网络主动节点</h2>
+<h1 id="3网络主动节点">3、网络主动节点</h1>
 <p>网络主动节点的网络管理报文收/发行为及时间参数如下所示：</p>
 <p><img
         class="lazyload"
