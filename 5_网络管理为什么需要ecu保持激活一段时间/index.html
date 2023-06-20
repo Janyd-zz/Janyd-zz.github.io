@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>网络管理为什么需要ECU保持激活一段时间 - Janydの博客 - 在记录中成长自己</title><meta name="Description" content="奋斗的年轻人做的网站"><meta property="og:title" content="网络管理为什么需要ECU保持激活一段时间" />
-<meta property="og:description" content="前言 上一篇中讲只有Transceiver、Controller处于正常工作模式以后才能有效的收发报文，进而才能识别报文的类型（NM Messa" />
+<meta property="og:description" content="前言 Transceiver、Controller处于正常工作模式以后才能有效的收发报文，进而才能识别报文的类型（NM Message、XCP M" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Janyd-zz.github.io/5_%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81ecu%E4%BF%9D%E6%8C%81%E6%BF%80%E6%B4%BB%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4/" />
 <meta property="og:image" content="https://Janyd-zz.github.io/head_xiaoxin.jpg"/>
@@ -15,7 +15,7 @@
 <meta name="twitter:image" content="https://Janyd-zz.github.io/head_xiaoxin.jpg"/>
 
 <meta name="twitter:title" content="网络管理为什么需要ECU保持激活一段时间"/>
-<meta name="twitter:description" content="前言 上一篇中讲只有Transceiver、Controller处于正常工作模式以后才能有效的收发报文，进而才能识别报文的类型（NM Messa"/>
+<meta name="twitter:description" content="前言 Transceiver、Controller处于正常工作模式以后才能有效的收发报文，进而才能识别报文的类型（NM Message、XCP M"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/Janyd-zz.github.io\/5_%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81ecu%E4%BF%9D%E6%8C%81%E6%BF%80%E6%B4%BB%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4\/"
-        },"image": ["https:\/\/Janyd-zz.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AUTOSAR","wordcount":  1730 ,
+        },"image": ["https:\/\/Janyd-zz.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AUTOSAR","wordcount":  1723 ,
         "url": "https:\/\/Janyd-zz.github.io\/5_%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81ecu%E4%BF%9D%E6%8C%81%E6%BF%80%E6%B4%BB%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4\/","datePublished": "2021-06-15T20:18:26+08:00","dateModified": "2021-06-15T15:58:26+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Janyd","logo": "https:\/\/Janyd-zz.github.io\/images\/head_xiaoxin.jpg"},"author": {
@@ -72,7 +72,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">网络管理为什么需要ECU保持激活一段时间</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Janyd</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>网络管理</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-06-15">2021-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1730 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-06-15">2021-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1723 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/5_%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81ecu%E4%BF%9D%E6%8C%81%E6%BF%80%E6%B4%BB%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4/" class="leancloud_visitors" data-flag-title="网络管理为什么需要ECU保持激活一段时间">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -89,7 +89,7 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="前言">前言</h1>
-<p>上一篇中讲只有Transceiver、Controller处于正常工作模式以后才能有效的收发报文，进而才能识别报文的类型（NM Message、XCP Message、Diagnostic Message、APP Message）。但识别出这些报文需要一个前提：ECU上电同时整个主程序运行起来，且需要一定的时间去识别报文类型。</p>
+<p>Transceiver、Controller处于正常工作模式以后才能有效的收发报文，进而才能识别报文的类型（NM Message、XCP Message、Diagnostic Message、APP Message）。但识别出这些报文需要一个前提：ECU上电同时整个主程序运行起来，且需要一定的时间去识别报文类型。</p>
 <p>项目中，唤醒事件（也称唤醒源）有效性验证为什么要设置一段时间？ECU上电，整个主程序如何运行起来？</p>
 <p>本篇就上述问题进行分析。</p>
 <h1 id="唤醒事件有效性验证时间分析">唤醒事件有效性验证时间分析</h1>
