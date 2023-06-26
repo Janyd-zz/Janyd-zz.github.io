@@ -4,34 +4,34 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>网络管理为什么需要ECU保持激活一段时间 - Janydの博客 - 在记录中成长自己</title><meta name="Description" content="奋斗的年轻人做的网站"><meta property="og:title" content="网络管理为什么需要ECU保持激活一段时间" />
-<meta property="og:description" content="前言 Transceiver、Controller处于正常工作模式以后才能有效的收发报文，进而才能识别报文的类型（NM Message、XCP M" />
+        <title>CanSM处理Busoff - Janydの博客 - 在记录中成长自己</title><meta name="Description" content="奋斗的年轻人做的网站"><meta property="og:title" content="CanSM处理Busoff" />
+<meta property="og:description" content="1 Busoff产生 CAN节点发生busoff，是因为TEC（Transmit Error Counter）＞255。总线上有错误帧，说明网段内有节点识别" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://Janyd-zz.github.io/5_%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81ecu%E4%BF%9D%E6%8C%81%E6%BF%80%E6%B4%BB%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4/" />
+<meta property="og:url" content="https://Janyd-zz.github.io/4_cansm%E5%A4%84%E7%90%86busoff/" />
 <meta property="og:image" content="https://Janyd-zz.github.io/head_xiaoxin.jpg"/>
-<meta property="article:published_time" content="2021-06-15T20:18:26+08:00" />
-<meta property="article:modified_time" content="2021-06-15T15:58:26+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:published_time" content="2021-06-12T20:18:26+08:00" />
+<meta property="article:modified_time" content="2021-06-12T15:58:26+08:00" /><meta property="og:site_name" content="My cool site" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://Janyd-zz.github.io/head_xiaoxin.jpg"/>
 
-<meta name="twitter:title" content="网络管理为什么需要ECU保持激活一段时间"/>
-<meta name="twitter:description" content="前言 Transceiver、Controller处于正常工作模式以后才能有效的收发报文，进而才能识别报文的类型（NM Message、XCP M"/>
+<meta name="twitter:title" content="CanSM处理Busoff"/>
+<meta name="twitter:description" content="1 Busoff产生 CAN节点发生busoff，是因为TEC（Transmit Error Counter）＞255。总线上有错误帧，说明网段内有节点识别"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Janyd-zz.github.io/5_%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81ecu%E4%BF%9D%E6%8C%81%E6%BF%80%E6%B4%BB%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4/" /><link rel="prev" href="https://Janyd-zz.github.io/4_cansm%E5%A4%84%E7%90%86busoff/" /><link rel="next" href="https://Janyd-zz.github.io/7_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86can-wakeup/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Janyd-zz.github.io/4_cansm%E5%A4%84%E7%90%86busoff/" /><link rel="prev" href="https://Janyd-zz.github.io/3_stm32f103%E4%B9%8Bio%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" /><link rel="next" href="https://Janyd-zz.github.io/5_%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81ecu%E4%BF%9D%E6%8C%81%E6%BF%80%E6%B4%BB%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "网络管理为什么需要ECU保持激活一段时间",
+        "headline": "CanSM处理Busoff",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/Janyd-zz.github.io\/5_%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81ecu%E4%BF%9D%E6%8C%81%E6%BF%80%E6%B4%BB%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4\/"
-        },"image": ["https:\/\/Janyd-zz.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AUTOSAR","wordcount":  1723 ,
-        "url": "https:\/\/Janyd-zz.github.io\/5_%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81ecu%E4%BF%9D%E6%8C%81%E6%BF%80%E6%B4%BB%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4\/","datePublished": "2021-06-15T20:18:26+08:00","dateModified": "2021-06-15T15:58:26+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/Janyd-zz.github.io\/4_cansm%E5%A4%84%E7%90%86busoff\/"
+        },"image": ["https:\/\/Janyd-zz.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AUTOSAR","wordcount":  2586 ,
+        "url": "https:\/\/Janyd-zz.github.io\/4_cansm%E5%A4%84%E7%90%86busoff\/","datePublished": "2021-06-12T20:18:26+08:00","dateModified": "2021-06-12T15:58:26+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Janyd","logo": "https:\/\/Janyd-zz.github.io\/images\/head_xiaoxin.jpg"},"author": {
                 "@type": "Person",
@@ -70,10 +70,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">网络管理为什么需要ECU保持激活一段时间</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Janyd</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>网络管理</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-06-15">2021-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1723 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/5_%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81ecu%E4%BF%9D%E6%8C%81%E6%BF%80%E6%B4%BB%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4/" class="leancloud_visitors" data-flag-title="网络管理为什么需要ECU保持激活一段时间">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">CanSM处理Busoff</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Janyd</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/classic-autosar/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Classic AUTOSAR</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-06-12">2021-06-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2586 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/4_cansm%E5%A4%84%E7%90%86busoff/" class="leancloud_visitors" data-flag-title="CanSM处理Busoff">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -83,48 +83,99 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#前言">前言</a></li>
-    <li><a href="#唤醒事件有效性验证时间分析">唤醒事件有效性验证时间分析</a></li>
-    <li><a href="#ecu上电程序运行过程分析">ECU上电，程序运行过程分析</a></li>
+    <li><a href="#1-busoff产生">1 Busoff产生</a></li>
+    <li><a href="#2--autosar-busoff快慢恢复机制">2  Autosar Busoff快慢恢复机制</a>
+      <ul>
+        <li><a href="#1-controller状态自动切到canif_cs_stoped">(1) Controller状态自动切到CANIF_CS_STOPED</a></li>
+        <li><a href="#2-将busoff上报给cansm">(2) 将Busoff上报给CanSM</a></li>
+        <li><a href="#3-cansm请求重启can-controller通知commbswm模式切换-打开rx-pdu关闭tx-pdu-启动busoff-timer">(3) CanSM请求重启Can Controller，通知ComM、BswM模式切换, 打开Rx PDU关闭Tx PDU, 启动Busoff timer</a></li>
+        <li><a href="#4-busoff-timer耗尽则会打开tx-pdu并将comm置为fullbswm置为full同时启动-txensuretimer-确定busoff-是否确实恢复">(4) Busoff Timer耗尽，则会打开Tx PDU，并将ComM置为（FULL）、BswM置为（FULL），同时启动 TxEnsureTimer 确定BUSOFF 是否确实恢复</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-busoff发生时的网络状态">3 Busoff发生时的网络状态</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="前言">前言</h1>
-<p>Transceiver、Controller处于正常工作模式以后才能有效的收发报文，进而才能识别报文的类型（NM Message、XCP Message、Diagnostic Message、APP Message）。但识别出这些报文需要一个前提：ECU上电同时整个主程序运行起来，且需要一定的时间去识别报文类型。</p>
-<p>项目中，唤醒事件（也称唤醒源）有效性验证为什么要设置一段时间？ECU上电，整个主程序如何运行起来？</p>
-<p>本篇就上述问题进行分析。</p>
-<h1 id="唤醒事件有效性验证时间分析">唤醒事件有效性验证时间分析</h1>
-<p>在实际的网络管理项目中，大家可能会遇到这样的需求：<strong>收到有效唤醒事件（如：网络管理报文），网络激活，报文正常收发；如果收到的报文是非网络管理报文，ECU需要保持一定时间后休眠（如：ECU保持5s，即5s内ECU处于供电状态）</strong>。注意后者网络仍然在BSM（Bus Sleep Mode），只能此时间内接收报文，不能发送报文。如果ECU在该时间内收到有效唤醒事件（多数是网络管理报文，也可能是有效的Power ON信号报文），网络将激活，进而进行正常的报文收发。</p>
-<p>注意：<strong>ECU唤醒是网络唤醒的前提条件，ECU唤醒并不一定网络唤醒，如果网络激活（进入Normal Mode）则ECU一定唤醒（RUN模式）</strong>。</p>
-<p>为什么要ECU保持一段时间呢?这里说一下个人理解，ECU自身并不知道唤醒事件是不是有效，ECU只要被供电就从启动文件指定的位置开始执行程序。如果要识别该唤醒事件是不是有效需要上层模块（EcuM）识别，而EcuM从开始验证到确认该事件的有效性需要调用底层模块确认（如：Controller或者Transceiver），这需要时间，且EcuM的验证和确认一般是异步执行，这也需要时间。上述时间其实并不长，项目不同执行的时间不等（每个项目初始化模块数量和读NVM时间不同），但多数在几十毫秒内执行完，但又为什么会要求1s或者5s或者更长呢？个人理解：ECU被唤醒，整个冷启动（可以理解为与电压相关的启动）花费了“较长”的时间，废了这么大劲立马Shutdown有点“过分”，如果ECU下电又被干扰起来还需要重头再来（各个模块、外设初始化、读NVM等），既然这样还不如等待一段时间确定没有有效唤醒事件以后，ECU再走Shutdown流程，进而避免ECU频繁的唤醒-&gt;休眠-&gt;唤醒，注意是ECU，不是网络被唤醒-&gt;休眠-&gt;唤醒，网络只有有效唤醒源才能激活。</p>
-<h1 id="ecu上电程序运行过程分析">ECU上电，程序运行过程分析</h1>
-<p>ECU如果要正常的运行程序，则需要供电，之后程序开始执行：启动文件-&gt;BootLoader-&gt;Application，进入“main”函数，也就是我们熟知的用户代码程序。用户代码程序包含ASWC的runnable以及各个模块的main handler（如：CanTrcv_30_Tja1145_MainFunction），这些程序在OS的调度下周期性或者事件触发执行，这也是上层模块可以收到消息和处理消息的基础。</p>
-<p>这里主要分析EcuM管理的上电到程序运行过程。AUTOSAR中，EcuM分为Flexible和Fixed两种类型，因为Fixed并不支持多核且不灵活，本文主要讨论Flexible类型的EcuM。</p>
+            </div><div class="content" id="content"><h1 id="1-busoff产生">1 Busoff产生</h1>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/5_/p01.png"
-        data-srcset="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/5_/p01.png, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/5_/p01.png 1.5x, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/5_/p01.png 2x"
+        data-src="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p01.png"
+        data-srcset="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p01.png, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p01.png 1.5x, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p01.png 2x"
         data-sizes="auto"
-        alt="/post_picture/网络管理/5_/p01.png"
-        title="/post_picture/网络管理/5_/p01.png" /></p>
-<p>如上图(1)所示，C Init Code一般是应用程序的main函数，即EcuM_Init在应用程序的main函数被调用，EcuM将控制ECU的启动流程，EcuM调用StartOS，让Os完成Task的激活。</p>
-<p>EcuM_Init并不能完成MCU所有的初始化动作，在StartPreOS Sequence阶段主要完成DET模块（最先完成初始化，以便其它模块可以上报开发错误）以及一些硬件外设的初始化，如MCU、Port、Internal Watchdog等（主要根据项目需求设置要初始化的外设模块）。</p>
+        alt="/post_picture/网络管理/4_/p01.png"
+        title="/post_picture/网络管理/4_/p01.png" /></p>
+<p>CAN节点发生busoff，是因为<strong>TEC（Transmit Error Counter）＞255</strong>。总线上有错误帧，说明网段内有节点识别到总线错误，处于主动或者被动错误状态的节点会外发主动或者被动错误帧。但是，这并不意味着错误帧会使得正常节点也进入busoff状态，因为，这些节点只是收到其他节点发送的错误帧，接收错误，会使得REC（Receive Error Counter）累加，但是REC最大只能等于128，并不会使接收错误帧的节点进入busoff状态，最多只能进入Error Passive状态。节点进入busoff状态，一定是因为节点自身识别到自己发送错误，TEC大于255导致的。</p>
+<p>简单总结起来就是一句话：ECU在向CAN总线发送消息时，出现发送失败。此时，ECU每发送失败一次，上图中的发送错误计数器就会+8，如果发送错误计数器的值累计达到255，即连续32帧都发送失败，ECU会进入busoff。</p>
+<h1 id="2--autosar-busoff快慢恢复机制">2  Autosar Busoff快慢恢复机制</h1>
+<h2 id="1-controller状态自动切到canif_cs_stoped">(1) Controller状态自动切到CANIF_CS_STOPED</h2>
+<p>节点产生Busoff以后，Can Controller Mode自动切换到CANIF_CS_STOPED，停止发送错误帧，避免影响总线其他节点的通信。</p>
+<h2 id="2-将busoff上报给cansm">(2) 将Busoff上报给CanSM</h2>
+<p><strong>Interrupt方式</strong>：Busoff中断发生-&gt;CanHL_ErrorHandling()-&gt;</p>
+<p>CanIf_ControllerBusOff()-&gt;CanSM_ControllerBusOff()-&gt;CanSM_BusOffIndicated()，CanSM_BusOffFlag = TRUE &hellip;CanSM_MainFunction()周期性检查CanSM_BusOffFlag置位情况。</p>
+<p><strong>Polling方式</strong>：Can_MainFunction_BusOff()-&gt;CanHL_ErrorHandling()-&gt;</p>
+<p>CanIf_ControllerBusOff()-&gt;CanSM_ControllerBusOff()-&gt;CanSM_BusOffIndicated()，CanSM_BusOffFlag = TRUE &hellip;CanSM_MainFunction()周期性检查CanSM_BusOffFlag置位情况。</p>
+<h2 id="3-cansm请求重启can-controller通知commbswm模式切换-打开rx-pdu关闭tx-pdu-启动busoff-timer">(3) CanSM请求重启Can Controller，通知ComM、BswM模式切换, 打开Rx PDU关闭Tx PDU, 启动Busoff timer</h2>
+<p>Busoff发生以后，CanSM调用CanIf_SetControllerMode()接口，请求将ControllerMode切到CANIF_CS_STARTED模式，以便于后续尝试恢复通信。同时关闭Tx PDU的发送，只能接收Rx PDU。所以这也是为什么在恢复期内可以收到报文的原因。CanSM调用BswM_CanSM_CurrentState()接口通知BswM进入CANSM_BSWM_BUS_OFF状态，调用ComM_BusSM_ModeIndication()接口通知ComM进入COMM_SILENT_COMMUNICATION状态。</p>
+<p>Busoff发生以后，CanSM先告知ComM，ComM在请求CanSM对应Channel由FULL COMMUNICATION进入SILENT COMMUNICATION。CanSM进入CANSM_BSM_S_SILENTCOM_BOR状态，如下所示：</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/5_/p02.png"
-        data-srcset="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/5_/p02.png, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/5_/p02.png 1.5x, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/5_/p02.png 2x"
+        data-src="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p02.png"
+        data-srcset="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p02.png, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p02.png 1.5x, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p02.png 2x"
         data-sizes="auto"
-        alt="/post_picture/网络管理/5_/p02.png"
-        title="/post_picture/网络管理/5_/p02.png" /></p>
-<p>如上图，EcuM_StartupTwo将完成SchM（Os），BSW模块的初始化，其中各个模块的初始化（Can_Init、CanIf_Init等）在BswM中完成。程序所需的所有外设、模块初始化之后，启动Scheduler 定时，即周期性的执行BSW/SWCs任务，至此Application程序得以运行。</p>
-<p><strong>参考资料：</strong></p>
-<p>AUTOSAR_SWS_ECUStateManager.pdf</p>
+        alt="/post_picture/网络管理/4_/p02.png"
+        title="/post_picture/网络管理/4_/p02.png" /></p>
+<p>Busoff发生以后，CanSM会启动一个Busoff Timer，Busoff Timer分为两种：</p>
+<ul>
+<li>
+<p><strong>快恢复</strong>时间参数：<strong>CanSMBorTimeL1；</strong></p>
+</li>
+<li>
+<p><strong>慢恢复</strong>时间参数：<strong>CanSMBorTimeL2</strong>。</p>
+</li>
+</ul>
+<p>具体Busoff Timer应该等于CanSMBorTimeL1还是CanSMBorTimeL2，取决于配置参数<strong>CanSMBorCounterL1ToL2</strong>。</p>
+<ul>
+<li>
+<p>如果Busoff连续发生次数 ＜ CanSMBorCounterL1ToL2，Busoff Timer = CanSMBorTimeL1；</p>
+</li>
+<li>
+<p>如果Busoff连续发生次数≥ CanSMBorCounterL1ToL2，Busoff Timer = CanSMBorTimeL2；</p>
+</li>
+</ul>
+<p><strong>注意</strong>：CanSMBorTimeL1、CanSMBorTimeL2、CanSMBorCounterL1ToL2三个参数均在CanSM模块配置，具体数值根据OEM需求配置。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p03.jpg"
+        data-srcset="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p03.jpg, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p03.jpg 1.5x, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p03.jpg 2x"
+        data-sizes="auto"
+        alt="/post_picture/网络管理/4_/p03.jpg"
+        title="/post_picture/网络管理/4_/p03.jpg" /></p>
+<p>测试中，busoff的快/慢恢复行为如下所示：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p04.png"
+        data-srcset="/post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p04.png, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p04.png 1.5x, /post_picture/%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86/4_/p04.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/网络管理/4_/p04.png"
+        title="/post_picture/网络管理/4_/p04.png" />在快/慢恢复时间内，可以接收报文。</p>
+<h2 id="4-busoff-timer耗尽则会打开tx-pdu并将comm置为fullbswm置为full同时启动-txensuretimer-确定busoff-是否确实恢复">(4) Busoff Timer耗尽，则会打开Tx PDU，并将ComM置为（FULL）、BswM置为（FULL），同时启动 TxEnsureTimer 确定BUSOFF 是否确实恢复</h2>
+<p>CanSMBorTimeL1或者CanSMBorTimeL2耗尽(elapse)，重新发送Tx PDU，让故障节点再次尝试向CAN总线发送报文。同时，CanSM通知BswM进入CANSM_BSWM_FULL_COMMUNICATION状态，通知ComM进入COMM_FULL_COMMUNICATION状态。可以启动CanSMBorTimeTxEnsured，确认Busoff是否恢复，也可以使用Confirm方式确认Busoff恢复。</p>
+<p>在CanSMBorTimeTxEnsured时间内，Busoff再次发生，则进行下一次的Busoff恢复机制，如果CanSMBorTimeTxEnsured耗尽，则说明成功从Busoff状态恢复。如果在CanSMBorTimeTxEnsured时间内，再次发生Busoff，则Busoff次数累加。</p>
+<h1 id="3-busoff发生时的网络状态">3 Busoff发生时的网络状态</h1>
+<p>这里主要讨论Busoff进入慢恢复期，节点在NOS(Normal Operation State)和RSS(Ready Sleep State)下是否会进行网络状态切换。</p>
+<p><strong>NOS</strong>：Busoff进入慢恢复期，如果<strong>上层不主动请求释放网络</strong>，网络状态无法进入RSS，所以，节点会一直在NOS状态下，一直处于慢恢复状态.</p>
+<p><strong>RSS</strong>：Busoff进入慢恢复期，如果在恢复期收不到有效的网络管理报文，NM-Timeout时间超时以后，进入PBSM(Pre Bus Sleep Mode)；如果可以收到有效的网络管理报文，则网络处于RSS状态.</p>
+<p>如果节点在NOS状态下，节点一直在慢恢复期，意味着该节点不会外报文(应用报文和网络管理报文均不会外发)，其他节点会上报对应的节点丢失故障。</p>
+<p>参考资料：</p>
+<p>AUTOSAR_SWS_CANStateManager.pdf</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-06-15</span>
+                <span>更新于 2021-06-12</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
@@ -141,8 +192,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/4_cansm%E5%A4%84%E7%90%86busoff/" class="prev" rel="prev" title="CanSM处理Busoff"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>CanSM处理Busoff</a>
-            <a href="/7_autosar%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86can-wakeup/" class="next" rel="next" title="Autosar网络管理：CAN Wakeup">Autosar网络管理：CAN Wakeup<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/3_stm32f103%E4%B9%8Bio%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" class="prev" rel="prev" title="STM32F103之GPIO工作原理"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>STM32F103之GPIO工作原理</a>
+            <a href="/5_%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81ecu%E4%BF%9D%E6%8C%81%E6%BF%80%E6%B4%BB%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4/" class="next" rel="next" title="网络管理为什么需要ECU保持激活一段时间">网络管理为什么需要ECU保持激活一段时间<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
