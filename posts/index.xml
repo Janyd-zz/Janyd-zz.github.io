@@ -4,7 +4,15 @@
         <link>https://Janyd-zz.github.io/posts/</link>
         <description>所有文章 | Janydの博客 - 在记录中成长自己</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>875392448@qq.com (Janyd)</managingEditor>
-            <webMaster>875392448@qq.com (Janyd)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 29 Mar 2022 20:18:26 &#43;0800</lastBuildDate><atom:link href="https://Janyd-zz.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>875392448@qq.com (Janyd)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 25 Jun 2023 20:27:31 &#43;0800</lastBuildDate><atom:link href="https://Janyd-zz.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Vector SIP Structure</title>
+    <link>https://Janyd-zz.github.io/10_crypto-service-manager/</link>
+    <pubDate>Sun, 25 Jun 2023 20:27:31 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://Janyd-zz.github.io/10_crypto-service-manager/</guid>
+    <description><![CDATA[1. 简介和功能概述 本文介绍了软件模块 CSM 加密服务管理器的功能、API 和配置，以对应 CSM 需求规范中的顶级要求。 CSM 需提供同步或异步服务，并实现对所有软]]></description>
+</item>
+<item>
     <title>Autosar概念：Callout与Callback</title>
     <link>https://Janyd-zz.github.io/9_autosar%E6%A6%82%E5%BF%B5callout%E4%B8%8Ecallback/</link>
     <pubDate>Tue, 29 Mar 2022 20:18:26 &#43;0800</pubDate>
