@@ -4,15 +4,7 @@
         <link>https://Janyd-zz.github.io/categories/%E5%8D%95%E7%89%87%E6%9C%BA/</link>
         <description>单片机 - 分类 - Janydの博客 - 在记录中成长自己</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>875392448@qq.com (Janyd)</managingEditor>
-            <webMaster>875392448@qq.com (Janyd)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 25 Jun 2023 20:27:31 &#43;0800</lastBuildDate><atom:link href="https://Janyd-zz.github.io/categories/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="self" type="application/rss+xml" /><item>
-    <title>Crypto Service Manager</title>
-    <link>https://Janyd-zz.github.io/10_crypto-service-manager/</link>
-    <pubDate>Sun, 25 Jun 2023 20:27:31 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://Janyd-zz.github.io/10_crypto-service-manager/</guid>
-    <description><![CDATA[1. 简介和功能概述 本文介绍了软件模块 CSM 加密服务管理器的功能、API 和配置，以对应 CSM 需求规范中的顶级要求。 CSM 需提供同步或异步服务，并实现对所有软]]></description>
-</item>
-<item>
+            <webMaster>875392448@qq.com (Janyd)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 19 Apr 2021 20:18:26 &#43;0800</lastBuildDate><atom:link href="https://Janyd-zz.github.io/categories/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="self" type="application/rss+xml" /><item>
     <title>STM32F103之GPIO工作原理</title>
     <link>https://Janyd-zz.github.io/3_stm32f103%E4%B9%8Bio%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</link>
     <pubDate>Mon, 19 Apr 2021 20:18:26 &#43;0800</pubDate>
