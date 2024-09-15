@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Postdrafts on Janydの博客 - 在记录中成长自己</title>
+    <link>https://Janyd-zz.github.io/postdraft/</link>
+    <description>Recent content in Postdrafts on Janydの博客 - 在记录中成长自己</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>875392448@qq.com (Janyd)</managingEditor>
+    <webMaster>875392448@qq.com (Janyd)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    
+	<atom:link href="https://Janyd-zz.github.io/postdraft/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://Janyd-zz.github.io/postdraft/16_someip_%E6%A6%82%E8%BF%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>875392448@qq.com (Janyd)</author>
+      <guid>https://Janyd-zz.github.io/postdraft/16_someip_%E6%A6%82%E8%BF%B0/</guid>
+      <description>0 总述 以下只是些东拼西凑的关于SOME/IP的简单介绍，如果想要基于协议进行项目开发，还请进一步查看参 考文献中标准协议的规范说明文档，进行系统学习。
+1 SOME/IP概述 1.1 服务和服务接口 SOME/IP用于面向服务（Service-Oriented）的通信，面向服务的通信传输是服务的相关信息，汽车以 太网应用方面最重要的是面向服务的架构，简称为SOA（Service Oriented Architecture）。 SOA的核心 是服务，服务可以简单理解为是实现某种功能的函数或算法。 服务提供者作为服务端（Server），服务消费者作为客户端（Client），服务实现是借助于远程过程调 用机制（RPC），客户端和服务端通过中间件进行信息的传输，而中间件是应用层软件和底层硬件之间 的软件统称。 数据路径中，服务接口（Service Interface）是描述服务与外界通信的接口。而SOME/IP作为中间件所 打包的数据内容，也就是服务接口的内容。 SOME/IP所对应的服务接口包含以下四种形式：
+  R&amp;amp;R Method（方法）：客户端发送请求，服务端回复响应；是一种有问有答的对话方式；
+  F&amp;amp;F Method（单向方法）：客户端发送请求，服务端不需要响应；是一种只问不答的对话方式；
+  Event（事件）：客户端向服务端订阅一个事件，服务端向客户端发布该事件；当该事件发生时，
+服务端就会自动给订阅了该事件的客户端发送相关的通知（Notification），是一种类似于生活中
+订阅报纸期刊的方式；即订阅之后不用询问会主动通知的对话方式；
+  Fields（字段）：是服务里一系列的属性值（Attributes），这些属性值可以通过设置器
+（Setter）、获取器（Getter）和通知器（Notifier）进行操作，可以理解成一组参数通过Method
+（Setter/Getter为Method的方式）和Event（Notifier为Event的方式）的组合进行操作。相关报
+文有三种：一种是通过Event进行通知，第二种是可以通过Getter进行状态值的获取，第三种可以
+通过Setter进行状态值的设置。
+  1.2 SOME/IP 1.2.1 SOME/IP在OSI模型中的层次 SOME/IP协议在OSI七层网络结构中位于应用层，在AUTOSAR中位于BSW的服务层。从功能上讲， SOME/IP是一种将服务接口进行打包或解包的中间件：从应用层发送的数据（就是服务相关的信息以及 前文提到的服务接口中的内容），按照SOME/IP的格式打包后，再传递到下层的TCP/IP层，再进行逐层 打包和封装，最终通过物理层以比特流的形式进行传输；接收时则按照与打包相反的规则进行解包。
+1.2.2 SOME/IP 头部格式说明 SOME/IP报文由消息头（Header）和数据段（Payload）组成，消息头是按照固定格式排列的有效信 息，这些有效信息包括报文ID、请求ID、协议版本、接口版本以及处理之后（序列化）的服务接口信息 等内容。SOME/IP报文格式如下图所示。报文ID包括Service ID和Method ID，Service ID指的是Service 本身的ID值；Method ID是指服务接口中的不同内容的ID，每个服务接口中定义的所有方法、单向方 法、事件等都需要设置一个ID值；Session ID是从1开始增加的循环值，用于使得Request与Response 相配对；Message Type主要分为请求、请求无响应、通知、响应、错误几种类型。
+Method ID
+   Service ID[16 Bit] 0[1 Bit] Method ID[last 15 Bit]    Event ID</description>
+    </item>
+    
+  </channel>
+</rss>

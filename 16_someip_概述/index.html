@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>someip 概述 - Janydの博客 - 在记录中成长自己</title><meta name="Description" content="奋斗的年轻人做的网站"><meta property="og:title" content="someip 概述" />
+<meta property="og:description" content="0 总述 以下只是些东拼西凑的关于SOME/IP的简单介绍，如果想要基于协议进行项目开发，还请进一步查看参 考文献中标准协议的规范说明文档，进行系" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Janyd-zz.github.io/16_someip_%E6%A6%82%E8%BF%B0/" />
+<meta property="og:image" content="https://Janyd-zz.github.io/head_xiaoxin.jpg"/>
+<meta property="article:published_time" content="2024-09-15T21:29:41+08:00" />
+<meta property="article:modified_time" content="2024-09-16T15:58:26+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://Janyd-zz.github.io/head_xiaoxin.jpg"/>
+
+<meta name="twitter:title" content="someip 概述"/>
+<meta name="twitter:description" content="0 总述 以下只是些东拼西凑的关于SOME/IP的简单介绍，如果想要基于协议进行项目开发，还请进一步查看参 考文献中标准协议的规范说明文档，进行系"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Janyd-zz.github.io/16_someip_%E6%A6%82%E8%BF%B0/" /><link rel="prev" href="https://Janyd-zz.github.io/10_crypto-service-manager/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "someip 概述",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/Janyd-zz.github.io\/16_someip_%E6%A6%82%E8%BF%B0\/"
+        },"image": ["https:\/\/Janyd-zz.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AUTOSAR","wordcount":  7136 ,
+        "url": "https:\/\/Janyd-zz.github.io\/16_someip_%E6%A6%82%E8%BF%B0\/","datePublished": "2024-09-15T21:29:41+08:00","dateModified": "2024-09-16T15:58:26+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Janyd","logo": "https:\/\/Janyd-zz.github.io\/images\/head_xiaoxin.jpg"},"author": {
+                "@type": "Person",
+                "name": "Janyd"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Janydの博客 - 在记录中成长自己"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Janydの博客 - 在记录中成长自己"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">someip 概述</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Janyd</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/classic-autosar/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Classic AUTOSAR</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-09-15">2024-09-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 7136 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 15 分钟&nbsp;<span id="/16_someip_%E6%A6%82%E8%BF%B0/" class="leancloud_visitors" data-flag-title="someip 概述">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#0-总述">0 总述</a></li>
+    <li><a href="#1-someip概述">1 SOME/IP概述</a>
+      <ul>
+        <li><a href="#11-服务和服务接口">1.1 服务和服务接口</a></li>
+        <li><a href="#12-someip">1.2 SOME/IP</a>
+          <ul>
+            <li><a href="#121-someip在osi模型中的层次">1.2.1 SOME/IP在OSI模型中的层次</a></li>
+            <li><a href="#122-someip-头部格式说明">1.2.2 SOME/IP 头部格式说明</a></li>
+            <li><a href="#123-tp消息说明">1.2.3 TP消息说明</a></li>
+          </ul>
+        </li>
+        <li><a href="#13-someip-sd">1.3 SOME/IP SD</a>
+          <ul>
+            <li><a href="#131-sd消息概要说明">1.3.1 SD消息概要说明</a></li>
+            <li><a href="#132-sd头部格式说明">1.3.2 SD头部格式说明</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#2-someip-sd的通信行为">2 SOME/IP SD的通信行为</a>
+      <ul>
+        <li><a href="#21-服务端通信行为">2.1 服务端通信行为</a></li>
+        <li><a href="#22-客户端通信行为">2.2 客户端通信行为</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-someip序列化与反序列化">3 SOME/IP序列化与反序列化</a>
+      <ul>
+        <li><a href="#31-字节对齐">3.1 字节对齐</a></li>
+        <li><a href="#32-基本数据类型">3.2 基本数据类型</a></li>
+        <li><a href="#33-结构类型">3.3 结构类型</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-练习题">4 练习题</a></li>
+    <li><a href="#附参考文献">附：参考文献</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="0-总述">0 总述</h1>
+<p>以下只是些东拼西凑的关于SOME/IP的简单介绍，如果想要基于协议进行项目开发，还请进一步查看参
+考文献中标准协议的规范说明文档，进行系统学习。</p>
+<h1 id="1-someip概述">1 SOME/IP概述</h1>
+<h2 id="11-服务和服务接口">1.1 服务和服务接口</h2>
+<p>SOME/IP用于面向服务（Service-Oriented）的通信，面向服务的通信传输是服务的相关信息，汽车以
+太网应用方面最重要的是面向服务的架构，简称为SOA（Service Oriented Architecture）。 SOA的核心
+是服务，服务可以简单理解为是实现某种功能的函数或算法。
+服务提供者作为服务端（Server），服务消费者作为客户端（Client），服务实现是借助于远程过程调
+用机制（RPC），客户端和服务端通过中间件进行信息的传输，而中间件是应用层软件和底层硬件之间
+的软件统称。
+数据路径中，服务接口（Service Interface）是描述服务与外界通信的接口。而SOME/IP作为中间件所
+打包的数据内容，也就是服务接口的内容。 SOME/IP所对应的服务接口包含以下四种形式：</p>
+<ul>
+<li>
+<p>R&amp;R Method（方法）：客户端发送请求，服务端回复响应；是一种有问有答的对话方式；</p>
+</li>
+<li>
+<p>F&amp;F Method（单向方法）：客户端发送请求，服务端不需要响应；是一种只问不答的对话方式；</p>
+</li>
+<li>
+<p>Event（事件）：客户端向服务端订阅一个事件，服务端向客户端发布该事件；当该事件发生时，</p>
+<p>服务端就会自动给订阅了该事件的客户端发送相关的通知（Notification），是一种类似于生活中</p>
+<p>订阅报纸期刊的方式；即订阅之后不用询问会主动通知的对话方式；</p>
+</li>
+<li>
+<p>Fields（字段）：是服务里一系列的属性值（Attributes），这些属性值可以通过设置器</p>
+<p>（Setter）、获取器（Getter）和通知器（Notifier）进行操作，可以理解成一组参数通过Method</p>
+<p>（Setter/Getter为Method的方式）和Event（Notifier为Event的方式）的组合进行操作。相关报</p>
+<p>文有三种：一种是通过Event进行通知，第二种是可以通过Getter进行状态值的获取，第三种可以</p>
+<p>通过Setter进行状态值的设置。</p>
+</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/16_picture/p01.png"
+        data-srcset="/post_picture/16_picture/p01.png, /post_picture/16_picture/p01.png 1.5x, /post_picture/16_picture/p01.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/16_picture/p01.png"
+        title="/post_picture/16_picture/p01.png" /></p>
+<h2 id="12-someip">1.2 SOME/IP</h2>
+<h3 id="121-someip在osi模型中的层次">1.2.1 SOME/IP在OSI模型中的层次</h3>
+<p>SOME/IP协议在OSI七层网络结构中位于应用层，在AUTOSAR中位于BSW的服务层。从功能上讲，
+SOME/IP是一种将服务接口进行打包或解包的中间件：从应用层发送的数据（就是服务相关的信息以及
+前文提到的服务接口中的内容），按照SOME/IP的格式打包后，再传递到下层的TCP/IP层，再进行逐层
+打包和封装，最终通过物理层以比特流的形式进行传输；接收时则按照与打包相反的规则进行解包。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/16_picture/p02.png"
+        data-srcset="/post_picture/16_picture/p02.png, /post_picture/16_picture/p02.png 1.5x, /post_picture/16_picture/p02.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/16_picture/p02.png"
+        title="image-20240124200751730" /></p>
+<h3 id="122-someip-头部格式说明">1.2.2 SOME/IP 头部格式说明</h3>
+<p>SOME/IP报文由消息头（Header）和数据段（Payload）组成，消息头是按照固定格式排列的有效信
+息，这些有效信息包括报文ID、请求ID、协议版本、接口版本以及处理之后（序列化）的服务接口信息
+等内容。SOME/IP报文格式如下图所示。报文ID包括Service ID和Method ID，Service ID指的是Service
+本身的ID值；Method ID是指服务接口中的不同内容的ID，每个服务接口中定义的所有方法、单向方
+法、事件等都需要设置一个ID值；Session ID是从1开始增加的循环值，用于使得Request与Response
+相配对；Message Type主要分为请求、请求无响应、通知、响应、错误几种类型。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/16_picture/p03.png"
+        data-srcset="/post_picture/16_picture/p03.png, /post_picture/16_picture/p03.png 1.5x, /post_picture/16_picture/p03.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/16_picture/p03.png"
+        title="image-20240124200827397" /></p>
+<p><strong>Method ID</strong></p>
+<table>
+<thead>
+<tr>
+<th>Service ID[16 Bit]</th>
+<th>0[1 Bit]</th>
+<th>Method ID[last 15 Bit]</th>
+</tr>
+</thead>
+</table>
+<p><strong>Event ID</strong></p>
+<table>
+<thead>
+<tr>
+<th>Service ID [16 Bit]</th>
+<th>1 [1 Bit]</th>
+<th>Event ID [last 15 Bit]</th>
+</tr>
+</thead>
+</table>
+<p><strong>Request ID</strong></p>
+<table>
+<thead>
+<tr>
+<th>Client ID [16 Bits]</th>
+<th>Session ID [16 Bits]</th>
+</tr>
+</thead>
+</table>
+<p>可以用来区分同一Method、Event、getter和setter的多次调用。
+生成应答消息时，Provider拷贝请求消息中的Request ID放到应答消息中。
+Client ID是ECU内客户端调用方的唯一标识。Session ID是区分来自同一客户端的多条消息，Session句
+柄为激活时，Session ID设置为0x00，激活后，从1开始依次递增。当达到0xFFFF后，回滚到0x01。</p>
+<p><strong>Protocol Version</strong></p>
+<p>The Protocol Version shall be 1.</p>
+<p><strong>Interface Version</strong></p>
+<p>Interface Version shall be an 8 Bit field that contains the Major Version of the Service Interface.</p>
+<p><strong>Message Type</strong></p>
+<table>
+<thead>
+<tr>
+<th>Number</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x00</td>
+<td>REQUEST</td>
+<td>A request expecting a response (even void)</td>
+</tr>
+<tr>
+<td>0x01</td>
+<td>REQUEST_NO_RETURN</td>
+<td>A fire&amp;forget request</td>
+</tr>
+<tr>
+<td>0x02</td>
+<td>NOTIFICATION</td>
+<td>A request of a notification/event callback expecting no response</td>
+</tr>
+<tr>
+<td>0x80</td>
+<td>RESPONSE</td>
+<td>The response message</td>
+</tr>
+<tr>
+<td>0x81</td>
+<td>ERROR</td>
+<td>The response containing an error</td>
+</tr>
+</tbody>
+</table>
+<p>bit 5作为TP-Flag使用，当设置为1 时，说明当前SOME/IP消息是一个分段。</p>
+<p><strong>Return Code</strong></p>
+<p>为了简化报头布局，每条消息都有该字段， REQUEST、 REQUEST_NO_RETURN 和NOTIFICATION 总是
+设置为0x00。 RESPONSE和ERROR消息根据实际情况进行设置。</p>
+<p><strong>Payload</strong></p>
+<p>UDP消息，要求payload大小在0到1400字节。
+TCP消息，支持大消息。
+Header部分使用字节序（大端）， Payload部分可配置。</p>
+<h3 id="123-tp消息说明">1.2.3 TP消息说明</h3>
+<p>当有大的SOME/IP消息需要通过UDP进行传送时，需要使用SOME/IP-TP进行分片（SOME/IP消息的分
+片，每条消息都是封装在一条IP消息中的），所有分片消息都使用跟原始消息相同的Session-ID。  TPFlag设置为1 。</p>
+<table>
+<thead>
+<tr>
+<th>Offset [28bits]</th>
+<th>Reserved Flag[1 bit]</th>
+<th>Reserved Flag[1 bit]</th>
+<th>Reserved Flag[1 bit]</th>
+<th><strong>More Segments</strong>Flag [1 bit]</th>
+</tr>
+</thead>
+</table>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/16_picture/p04.png"
+        data-srcset="/post_picture/16_picture/p04.png, /post_picture/16_picture/p04.png 1.5x, /post_picture/16_picture/p04.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/16_picture/p04.png"
+        title="image-20240123212211167" /></p>
+<p>The lower 4 bits shall be always interpreted as 0.
+The More Segments Flag shall be set to 1 for all segments but the last segment. For the last
+segment it shall be set to 0.</p>
+<p>下面以一个实际报文例子进行说明（报文内容是为了便于说明进行编辑的，跟图片不一致，说明中以报
+文为准）</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/16_picture/p05.png"
+        data-srcset="/post_picture/16_picture/p05.png, /post_picture/16_picture/p05.png 1.5x, /post_picture/16_picture/p05.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/16_picture/p05.png"
+        title="image-20240124200927589" /></p>
+<table>
+<thead>
+<tr>
+<th align="left">01 00 00 23 00 00 17 00 00 01 00 01 01 01 00 00<br/>&mdash;&gt; Payload Begin<br/>00 01 00 02 00 03 00 04 00 05 00 06 00 07 00 08<br/>00 09 00 10 00 11 00 12 00 13 00 14 00 15 00 16<br/>00 17 .. .. .. .. .. .. .. .. .. .. .. .. .. ..<br/>.. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ..<br/>.. .. .. .. .. .. .. .. .. .. .. .. .. .. 29 32<br/>29 33 29 34 29 35 29 36 29 37 29 38 29 39 29 40<br/>&lt;&mdash; Payload End (Total 5880 Byte)<br/>SOMEIP报文分片时，长度、Offset以及More域的值如下表所示：<br/>分片1<br/>分片2<br/>01 00 00 23[00 00 17 00]00 01 00 01 01 01[00]00<br/>[00 00 17 00] 长度0x1700，去掉8字节头部，即5880字节Payload<br/>[00]MessageType为Request，TPFlag即比特5置1，值为[20]<br/>&mdash;&gt; Payload Begin<br/>00 01 00 02 00 03 00 04 00 05 00 06 00 07 00 08<br/>00 09 00 10 00 11 00 12 00 13 00 14 00 15 00 16<br/>00 17 .. .. .. .. .. .. .. .. .. .. .. .. .. ..<br/>.. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ..<br/>.. .. .. .. .. .. .. .. .. .. .. .. .. .. 29 32<br/>29 33 29 34 29 35 29 36 29 37 29 38 29 39 29 40<br/>&lt;&mdash; Payload End (Total 5880 Byte)</th>
+</tr>
+</thead>
+</table>
+<p>SOMEIP报文分片时，长度、 Offset以及More域的值如下表所示：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/16_picture/p06.png"
+        data-srcset="/post_picture/16_picture/p06.png, /post_picture/16_picture/p06.png 1.5x, /post_picture/16_picture/p06.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/16_picture/p06.png"
+        title="image-20240123220742647" /></p>
+<p><strong>分片1</strong></p>
+<table>
+<thead>
+<tr>
+<th>01 00 00 23[00 00 05 7c] 00 01 00 01 01 01[20] 00<br/>[00 00 05 7c] 长度0x057c， 12字节头<br/>部和1392字节Payl oad<br/>[00] MessageType为Request， TPFl ag即比特5置1， 值为[20]<br/>00 00 00 01<br/>此处插入TP信息域（Offset为0x00、<br/>More-Fl ag为1）<br/>&mdash;&gt; Payl oad Begi n<br/>00 01 00 02 00 03 00 04 00 05 00 06 00 07 00 08<br/>00 09 . . . . . . . . . . . . . . . . . . . . . . . . . . . .<br/>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .<br/>. . . . . . . . . . . . . . . . . . . . . . . . . . . . 06 92<br/>06 93 06 04 06 95 06 96<br/>&lt;&mdash; Payl oad End (Total 1392 Byte)</th>
+</tr>
+</thead>
+</table>
+<p><strong>分片2</strong></p>
+<table>
+<thead>
+<tr>
+<th>01 00 00 23[00 00 05 7c] 00 01 00 01 01 01[20] 00<br/>[00 00 05 7c] 长度0x057c， 12字节头<br/>部和1392字节Payl oad<br/>[00] MessageType为Request， TPFl ag即比特5置1， 值为[20]<br/>00 00 05 71<br/>此处插入TP信息域（Offset为0x57、<br/>More-Fl ag为1）<br/>&mdash;&gt; Payl oad Begi n<br/>06 97 06 98 06 99 07 00 07 01 07 02 07 03 07 04<br/>07 05 . . . . . . . . . . . . . . . . . . . . . . . . . . . .<br/>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .<br/>. . . . . . . . . . . . . . . . . . . . . . . . . . . . 13 88<br/>13 89 13 90 13 91 13 92<br/>&lt;&mdash; Payl oad End (Total 1392 Byte)</th>
+</tr>
+</thead>
+</table>
+<p><strong>分片3、分片4略</strong></p>
+<p><strong>分片5</strong></p>
+<table>
+<thead>
+<tr>
+<th>01 00 00 23[00 00 01 44] 00 01 00 01 01 01[20] 00<br/>[00 00 01 44] 长度0x0144， 12字节头<br/>部和312字节Payl oad<br/>[00] MessageType为Request， TPFl ag即比特5置1， 值为[20]<br/>00 00 15 C0<br/>此处插入TP信息域（Offset为0x15C、<br/>More-Fl ag为0）<br/>&mdash;&gt; Payl oad Begi n<br/>27 85 27 86 27 87 27 88 27 89 27 90 27 91 27 92<br/>27 93 . . . . . . . . . . . . . . . . . . . . . . . . . . . .<br/>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .<br/>. . . . . . . . . . . . . . . . . . . . . . . . . . . . 29 36<br/>29 37 29 38 29 39 29 40<br/>&lt;&mdash; Payl oad End (Total 312 Byte)</th>
+</tr>
+</thead>
+</table>
+<h2 id="13-someip-sd">1.3 SOME/IP SD</h2>
+<h3 id="131-sd消息概要说明">1.3.1 SD消息概要说明</h3>
+<p>SD（Service Discovery）是服务的信息清单及管理机制，也是一种服务，主要实现服务寻址及事件订阅
+两种功能。 SD用来对服务进行寻址时，服务提供者（Server端）通过服务发现（SD）通知其他ECU
+（Client端）某服务可用，并间接地通知该服务的地址（Server端地址）；服务消费者（Client端）了解
+到某服务状态后，能够调用该服务的相关内容。 SD用来事件订阅时，专门针对Event类型的接口，可以
+通过SD实现对Event所在的Event group进行订阅、停止订阅等操作。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/16_picture/p07.png"
+        data-srcset="/post_picture/16_picture/p07.png, /post_picture/16_picture/p07.png 1.5x, /post_picture/16_picture/p07.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/16_picture/p07.png"
+        title="image-20240123221314786" /></p>
+<h3 id="132-sd头部格式说明">1.3.2 SD头部格式说明</h3>
+<p>SOME/IP SD报文也是一种SOME/IP报文，是在SOME/IP报文的基础上进行了扩展，增加了Entry、
+Option等字段； SOME/IP SD报文的ServiceID（0xFFFF）、 MethodID（0x8100）、 Request ID
+（0x0000）、 ProtocolVersion（0x01 ）、 Interface Version（0x01 ）、 MessageType（0x02）、
+ReturnCode（0x00）等属性都是固定值。 Entry字段可以理解为服务实例的“入口”，该入口包含服务实
+例以及需要订阅的事件组的信息。服务提供者和消费者通过SD中的Entry实现提供服务、发现服务，以
+及订阅事件组的功能，即服务提供者可以告知其他节点服务的“入口”在哪里，服务消费者也可以通过
+该“入口”找到自己所需要的服务；也能够实现订阅事件组、取消订阅事件组等功能。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/16_picture/p08.png"
+        data-srcset="/post_picture/16_picture/p08.png, /post_picture/16_picture/p08.png 1.5x, /post_picture/16_picture/p08.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/16_picture/p08.png"
+        title="image-20240123221422160" /></p>
+<p>Entry分为两种类型：面向服务（Service）的Entry和面向事件组（Eventgroup）的Entry，两种类型的
+Entry都是16字节大小。对于面向服务的Entry，可分为发现服务（FindService）、提供服务
+（OfferService）和停止提供服务（StopOfferService）；对于面向Eventgroup的Entry，可分为订阅事
+件组（SubscribeEventgroup）、肯定应答（SubscribeEventgroupAck）、否定应答
+（SubscribeEventgroupNAck）和停止订阅事件组（StopSubscribeEventgroup）。 Entry字段格式和
+Type值如下图所示：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/16_picture/p09.png"
+        data-srcset="/post_picture/16_picture/p09.png, /post_picture/16_picture/p09.png 1.5x, /post_picture/16_picture/p09.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/16_picture/p09.png"
+        title="image-20240123221524730" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/16_picture/p10.png"
+        data-srcset="/post_picture/16_picture/p10.png, /post_picture/16_picture/p10.png 1.5x, /post_picture/16_picture/p10.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/16_picture/p10.png"
+        title="image-20240123221551049" /></p>
+<p>Option字段用来传输Entry的附加信息，包括对于服务实例的IP地址、传输协议、端口号等有效信息。
+Option根据可变数据段内容，主要分为以下几种：
+1 ） Configuration Option
+2） Endpoint Option
+3） Multicast Option
+Configuration Option 包含的是字符串信息，可以用来表示主机名称、服务以及服务实例的名称等多种
+可以转化为字符串的信息； Endpoint Option又分为IPv4 Endpoint Option和IPv6 Endpoint Option，此
+类Option中会包含IP地址、传输协议（UDP或TCP）和服务端的端口号； Multicast Option分为IPv4
+Multicast Option和IPv6 Multicast Option，此类Option中会包含组播IP地址、 UDP协议以及组播端口
+号。每种类型的Option Type都有对应的Type值， Option字段格式和Type值如下图所示：
+“Entry入口”和“Option选项”的基本内容摆在这里，还是不太好理解，我们再来举个形象一些的例子。 “入
+口”中定义的是一个服务的基本信息，就像一个人的姓名（Service ID）和单位名称（Instance ID）；
+而“选项”会有很多个，这里面每一个选项可以定义一个属性信息，比如这个人单位地址信息（e.g. IPv4
+Endpoint Option）或邮箱地址（ConfigurationOption）或联系电话（Configuration Option）等内
+容。
+如果是某一个车载智能摄像头节点，提供一个限速标志的智能检测服务，那应该如何体现呢？上电之
+后，该节点会主动广播发送一个“OfferService”的SD报文出去通知大家；通知的报文里， Entry上会注明
+该服务的ID，所在节点实例（Instance ID），所提供的服务的版本号等信息；同时Entry会附带一些
+Option，比如通过IPv4 Endpoint Option，告知大家该服务的Socket是多少，比如通过Configuration
+Option，告知大家该服务的秘钥信息。这样该节点就把服务的各种相关信息就通知给客户端了，哪个客
+户端需要这个服务，就会主动跟这个服务建立联系了。</p>
+<h1 id="2-someip-sd的通信行为">2 SOME/IP SD的通信行为</h1>
+<p>SD通信主要涉及到3类报文： Find Service、 Offer Service和Subscribe报文。
+服务端和客户端的通信行为包含以下几个阶段：</p>
+<h2 id="21-服务端通信行为">2.1 服务端通信行为</h2>
+<ul>
+<li>
+<p>Down Phase</p>
+<ul>
+<li>在这个阶段， Service是不可用的，即服务端无法提供服务</li>
+</ul>
+</li>
+<li>
+<p>Initial Wait Phase</p>
+<ul>
+<li>
+<p>当服务准备完毕(Available)后，进入此阶段</p>
+</li>
+<li>
+<p>如果此阶段收到Find Service报文，服务端忽略此消息，不做任何处理</p>
+</li>
+<li>
+<p>如果服务不可用了，将返回进入Down Phase</p>
+</li>
+<li>
+<p>此阶段需要定义时间参数INITIAL_DELAY_Min和INITIAL_DELAY_Max，初始化时间取其之间</p>
+<p>的随机值，当定时器超时后，发送第一帧OfferService，标志着进入下一个阶段</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Repetition Phase</p>
+<ul>
+<li>
+<p>为了让客户端快速找到有哪些Service，此阶段重复发送OfferService，重复次数由</p>
+<p>REPETITIONS_MAX决定</p>
+</li>
+<li>
+<p>发送间隔以REPETITIONS_BASE_DELAY为基本时间，每发送一次，间隔是前一间隔的2倍</p>
+</li>
+<li>
+<p>如果收到某客户端的FindService，不影响当前阶段的发送计数和计时，延迟一定时间</p>
+<p>(REQUEST_RESPONSE_DELAY)后，单独发送单播OfferService给服务请求端</p>
+</li>
+<li>
+<p>如果收到SubscribeEventgroup后，发送单播Ack/Nack，启动此订阅Entry的TTL计时器</p>
+</li>
+<li>
+<p>如果收到StopSubscribeEventgroup后，停止此订阅Entry的TTL计时器</p>
+</li>
+<li>
+<p>如果服务不可用，离开此阶段进入Down Phase，并发送StopOfferService通知所有客户端</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Main Phase</p>
+<ul>
+<li>
+<p>此阶段将周期性发送OfferService，周期时间为CYCLIC_OFFER_DELAY</p>
+</li>
+<li>
+<p>如果收到某客户端的FindService，不影响发送计数，延迟一定时间</p>
+<p>(REQUEST_RESPONSE_DELAY)后，发送单播OfferService给服务请求端</p>
+</li>
+<li>
+<p>如果收到SubscribeEventgroup后，发送单播Ack/Nack，启动此订阅Entry的TTL计时器</p>
+</li>
+<li>
+<p>收到StopSubscribeEventgroup后，停止此订阅Entry的TTL计时器</p>
+</li>
+<li>
+<p>如果服务不可用，离开此阶段进入Down Phase，并发送StopOfferService</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/16_picture/p11.png"
+        data-srcset="/post_picture/16_picture/p11.png, /post_picture/16_picture/p11.png 1.5x, /post_picture/16_picture/p11.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/16_picture/p11.png"
+        title="image-20240123222241225" /></p>
+<h2 id="22-客户端通信行为">2.2 客户端通信行为</h2>
+<ul>
+<li>
+<p>Down Phase</p>
+<ul>
+<li>
+<p>服务未被应用请求</p>
+</li>
+<li>
+<p>收到OfferService，存储当前服务实例状态，启动TTL计时器，此时服务若被应用请求，直接</p>
+<p>进入Main Phase</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Initial Wait Phase</p>
+<ul>
+<li>
+<p>服务被请求后，进入此阶段</p>
+</li>
+<li>
+<p>等待INITIAL_DELAY时间（最大和最小值之间的随机值）</p>
+</li>
+<li>
+<p>如果此时收到Offer Service，则取消计时器，直接进入Main Phase</p>
+</li>
+<li>
+<p>如果服务请求被释放，进入Down Phase</p>
+</li>
+<li>
+<p>计时器超时后，发送第一个Find service，进入下一阶段</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Repetition Phase</p>
+<ul>
+<li>
+<p>重复发送Find service，重复次数由REPETITIONS_MAX决定</p>
+</li>
+<li>
+<p>发送间隔以REPETITIONS_BASE_DELAY为基时间，每发送一次，间隔加倍</p>
+</li>
+<li>
+<p>收到Offer Service，停止发送计数和计时，立即进入Main Phase；触发发送</p>
+<p>SubscribeEventgroup(延迟一定时间）</p>
+</li>
+<li>
+<p>如果服务请求被释放，进入Down Phase；若有订阅，则发送StopSubscribeEventgroup</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Main Phase</p>
+<ul>
+<li>
+<p>不再周期发送Find Service</p>
+</li>
+<li>
+<p>收到Offer Service，触发发送SubscribeEventgroup(延迟一定时间）</p>
+</li>
+<li>
+<p>如果收到StopOfferService，则停止所有计时器</p>
+</li>
+<li>
+<p>如果服务请求被释放，进入Down Phase；若有订阅，则发送StopSubscribeEventgroup</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/16_picture/p12.png"
+        data-srcset="/post_picture/16_picture/p12.png, /post_picture/16_picture/p12.png 1.5x, /post_picture/16_picture/p12.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/16_picture/p12.png"
+        title="image-20240123222636601" /></p>
+<h1 id="3-someip序列化与反序列化">3 SOME/IP序列化与反序列化</h1>
+<h2 id="31-字节对齐">3.1 字节对齐</h2>
+<p>对齐用于通过在数据之后插入填充元素来对齐数据的开头，以确保对齐的数据从特定内存地址开始。
+如果可变大小数据不是序列化数据流中的最后一个元素，则应通过在可变大小数据之后插入填充元素来
+实现数据对齐。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/16_picture/p13.png"
+        data-srcset="/post_picture/16_picture/p13.png, /post_picture/16_picture/p13.png 1.5x, /post_picture/16_picture/p13.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/16_picture/p13.png"
+        title="image-20240124195023657" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/16_picture/p14.png"
+        data-srcset="/post_picture/16_picture/p14.png, /post_picture/16_picture/p14.png 1.5x, /post_picture/16_picture/p14.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/16_picture/p14.png"
+        title="image-20240124195056152" /></p>
+<h2 id="32-基本数据类型">3.2 基本数据类型</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Size [bit]</th>
+<th>Remark</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean</td>
+<td>TRUE/FALSE value</td>
+<td>8</td>
+<td>FALSE (0), TRUE (1)</td>
+</tr>
+<tr>
+<td>uint8</td>
+<td></td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>unsigned Integer</td>
+<td>16</td>
+<td></td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>unsigned Integer</td>
+<td>32</td>
+<td></td>
+</tr>
+<tr>
+<td>uint64</td>
+<td>unsigned Integer</td>
+<td>64</td>
+<td></td>
+</tr>
+<tr>
+<td>sint8</td>
+<td>signed Integer</td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>sint16</td>
+<td>signed Integer</td>
+<td>16</td>
+<td></td>
+</tr>
+<tr>
+<td>sint32</td>
+<td>signed Integer</td>
+<td>32</td>
+<td></td>
+</tr>
+<tr>
+<td>sint64</td>
+<td>signed Integer</td>
+<td>64</td>
+<td></td>
+</tr>
+<tr>
+<td>float32</td>
+<td>floating point number</td>
+<td>32</td>
+<td>IEEE 754 binary32 (Single Precision)</td>
+</tr>
+<tr>
+<td>float64</td>
+<td>floating point number</td>
+<td>64</td>
+<td>IEEE 754 binary64 (Double Precision)</td>
+</tr>
+</tbody>
+</table>
+<p>字节序根据配置设定。</p>
+<h2 id="33-结构类型">3.3 结构类型</h2>
+<p>根据配置，可以在结构前面插入8、16或32位的可选长度字段。
+如下是没有插入长度字段的序列化示例。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_picture/16_picture/p15.png"
+        data-srcset="/post_picture/16_picture/p15.png, /post_picture/16_picture/p15.png 1.5x, /post_picture/16_picture/p15.png 2x"
+        data-sizes="auto"
+        alt="/post_picture/16_picture/p15.png"
+        title="image-20240124200121274" /></p>
+<h1 id="4-练习题">4 练习题</h1>
+<p>请解析如下SOME/IP SD和SOME/IP消息的头部各信息域（为了简便些， TCP/UDP及以下几层的Header
+已经剥掉，只给出了SOMEIP部分的荷载）
+<strong>报文1</strong></p>
+<table>
+<thead>
+<tr>
+<th>0000 ff ff 81 00 00 00 00 3c 00 00 03 ca 01 01 02 00<br/>0010 c0 00 00 00 00 00 00 10 01 01 00 10 01 00 00 01<br/>0020 01 00 00 03 00 00 00 00 00 00 00 18 00 09 24 00<br/>0030 ac 10 0c 1e 00 11 77 1a 00 09 04 00 ac 10 0c 1e<br/>0040 00 06 d6 d8</th>
+</tr>
+</thead>
+</table>
+<p><strong>报文2</strong></p>
+<table>
+<thead>
+<tr>
+<th>0000 ff ff 81 00 00 00 00 3c 00 00 00 01 01 01 02 00<br/>0010 c0 00 00 00 00 00 00 10 06 00 00 20 01 00 00 01<br/>0020 01 00 00 03 00 00 00 02 00 00 00 18 00 09 04 00<br/>0030 ac 10 0c 61 00 11 d6 dd 00 09 04 00 ac 10 0c 61<br/>0040 00 06 d6 dd</th>
+</tr>
+</thead>
+</table>
+<p><strong>报文3</strong></p>
+<table>
+<thead>
+<tr>
+<th>0000 ff ff 81 00 00 00 00 30 00 00 00 05 01 01 02 00<br/>0010 c0 00 00 00 00 00 00 10 07 00 00 00 01 00 00 01<br/>0020 01 00 00 03 00 00 00 02 00 00 00 0c 00 09 24 00<br/>0030 ac 10 0c 1e 00 11 77 1a</th>
+</tr>
+</thead>
+</table>
+<p><strong>报文4</strong></p>
+<table>
+<thead>
+<tr>
+<th>0000 01 00 00 19 00 00 00 12 00 01 00 01 01 01 00 00<br/>0010 00 00 00 02 00 00 00 02 54 45</th>
+</tr>
+</thead>
+</table>
+<h1 id="附参考文献">附：参考文献</h1>
+<p><a href="http://some-ip.com/">http://some-ip.com/</a>
+AUTOSAR_PRS_SOMEIPProtocol.pdf
+AUTOSAR_PRS_SOMEIPServiceDiscoveryProtocol.pdf
+AUTOSAR_SWS_CommunicationManagement.pdf
+<a href="https://www.hirain.com/">https://www.hirain.com/</a> （北京经纬恒润科技股份有限公司）
+<a href="http://www.e-planet.cn/">http://www.e-planet.cn/</a>（上海怿星电子科技有限公司）</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-09-16</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/autosar/">AUTOSAR</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/10_crypto-service-manager/" class="prev" rel="prev" title="Crypto Service Manager"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Crypto Service Manager</a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Janyd</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"valine":{"appId":"cIRpq8figzQxyGz5LyAdUahJ-gzGzoHsz","appKey":"T9YWfgGhznKaXXx7TCLxzS3C","avatar":"robohash","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":true,"highlight":true,"lang":true,"meta":true,"pageSize":true,"placeholder":"说点什么吧...","recordIP":null,"visitor":true}},"data":{"id-1":"奋斗的年轻人","id-2":"奋斗的年轻人"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
