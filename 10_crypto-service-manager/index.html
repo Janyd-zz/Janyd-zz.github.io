@@ -7,10 +7,10 @@
         <title>Crypto Service Manager - Janydの博客 - 在记录中成长自己</title><meta name="Description" content="奋斗的年轻人做的网站"><meta property="og:title" content="Crypto Service Manager" />
 <meta property="og:description" content="1. 简介和功能概述 本文介绍了软件模块 CSM 加密服务管理器的功能、API 和配置，以对应 CSM 需求规范中的顶级要求。 CSM 需提供同步或异步服务，并实现对所有软" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://Janyd-zz.github.io/10_crypto-service-manager/" />
-<meta property="og:image" content="https://Janyd-zz.github.io/head_xiaoxin.jpg"/>
+<meta property="og:url" content="https://Janyd-zz.github.io/10_crypto-service-manager/" /><meta property="og:image" content="https://Janyd-zz.github.io/head_xiaoxin.jpg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-25T20:27:31+08:00" />
 <meta property="article:modified_time" content="2023-07-03T15:58:26+08:00" /><meta property="og:site_name" content="My cool site" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://Janyd-zz.github.io/head_xiaoxin.jpg"/>
 
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/Janyd-zz.github.io\/10_crypto-service-manager\/"
-        },"image": ["https:\/\/Janyd-zz.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AUTOSAR","wordcount":  13821 ,
+        },"image": ["https:\/\/Janyd-zz.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AUTOSAR","wordcount":  13833 ,
         "url": "https:\/\/Janyd-zz.github.io\/10_crypto-service-manager\/","datePublished": "2023-06-25T20:27:31+08:00","dateModified": "2023-07-03T15:58:26+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Janyd","logo": "https:\/\/Janyd-zz.github.io\/images\/head_xiaoxin.jpg"},"author": {
@@ -72,7 +72,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Crypto Service Manager</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Janyd</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/classic-autosar/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Classic AUTOSAR</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-25">2023-06-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 13821 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-25">2023-06-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 13833 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 28 分钟&nbsp;<span id="/10_crypto-service-manager/" class="leancloud_visitors" data-flag-title="Crypto Service Manager">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -499,7 +499,7 @@
 <p><strong>注意：</strong></p>
 <p>状态的实际事务是在与这些状态一起工作的层中进行的，即：包含在加密驱动程序中。</p>
 <p><strong>CSM</strong> 加密服务需能通过一次调用处理来支持多种操作模式的输入。</p>
-<p>如果设置了 <strong>CRYPTO_OPERATIONMODE_START</strong> 和 <strong>CRYPTO_OPERATIONMODE_FINISH</strong> 位并且未设置 <strong>CRYPTO_OPERATIONMODE_UPDATE</strong>，则 Csm_<Service>() 函数需返回 <strong>E_NOT_OK</strong>。</p>
+<p>如果设置了 <strong>CRYPTO_OPERATIONMODE_START</strong> 和 <strong>CRYPTO_OPERATIONMODE_FINISH</strong> 位并且未设置 <strong>CRYPTO_OPERATIONMODE_UPDATE</strong>，则 Csm_<Service>() 函数需返回 **E_NOT_OK**。</p>
 <p><strong>注意：</strong></p>
 <p>由于单一连贯的方法调用开销较少，所以可以提升性能。因为只需调用一次，而无需多次显式地调用 <strong>API</strong>，这种方法可用于需要快速处理的小数据输入。</p>
 <p>但在使用流方法。如：<strong>START</strong>, <strong>UPDATE</strong>, <strong>FINISH</strong> 操作时。专用加密驱动程序对象会一直处于等待进一步的输入（UPDATE），直到切换到 <strong>FINISH</strong> 状态。在此期间 <strong>Crypto Driver</strong> 实例也无法同时处理其他的作业。</p>
@@ -548,8 +548,8 @@
 </ul>
 <p>对于所有其他服务操作，<strong>CSM</strong> 需将操作模式设置为 <strong>CRYPTO_OPERATIONMODE_SINGLECALL</strong>，即使 API 不提供操作模式。</p>
 <p><strong>注意：</strong></p>
-<p>Csm_<Service>() 会使用一个指向 <strong>Crypto_JobType</strong> 的指针，调用 CryIf_ProcessJob()，其中存储了处理作业所需的所有信息。</p>
-<p>此 <strong>Crypto_JobType</strong> 的一部分是 <strong>Crypto_JobPrimitiveInputOutputType</strong>，其中存储了有关取决于服务的输入和输出参数的所有信息。从 Csm_<Service>() 的 <strong>API</strong> 参数到 <strong>Crypto_JobPrimitiveInputOutputType</strong> 的参数的映射定义，可以在加密驱动程序规范的 [SWS_Crypto_00073] 中找到。</p>
+<p>Csm_<Service>() 会使用一个指向 **Crypto_JobType** 的指针，调用 CryIf_ProcessJob()，其中存储了处理作业所需的所有信息。</p>
+<p>此 <strong>Crypto_JobType</strong> 的一部分是 <strong>Crypto_JobPrimitiveInputOutputType</strong>，其中存储了有关取决于服务的输入和输出参数的所有信息。从 Csm_<Service>() 的 **API** 参数到 **Crypto_JobPrimitiveInputOutputType** 的参数的映射定义，可以在加密驱动程序规范的 [SWS_Crypto_00073] 中找到。</p>
 <p>如果 CSM 向加密接口发出服务 CRYPTO_MACGENERATE、CRYPTO_MACVERIFY、CRYPTO_ENCRYPT、CRYPTO_DECRYPT、CRYPTO_AEADENCRYPT、CRYPTO_AEADDECRYPT、 CRYPTO_RANDOMGENERATE、CRYPTO_SIGNATUREGENERATE 或者 CRYPTO_SIGNATUREVERIFY，它需要确保 <strong>Crypto_JobType</strong> 作业结构中的元素 jobPrimitiveInfo-&gt;cryIfKeyId 引用该作业的分配密钥。</p>
 <p>Note: The CryIf is responsible to transform this ID to the corresponding key ID of the respective crypto driver.</p>
 <p>If one of the primitive services CRYPTO_KEYSETVALID, CRYPTO_KEYSETINVALID, CRYPTO_RANDOMSEED, CRYPTO_KEYGENERATE, CRYPTO_KEYDERIVE, CRYPTO_KEYEXCHANGECALCPUBVAL or CRYPTO_KEYEXCHANGECALCSECRET are to be executed, the CSM shall fill in the elements of the structure Csm_JobType-&gt;jobPrimitiveInputOutput-&gt;cryIfKeyId and, if applicable, Csm_JobType-&gt;jobPrimitiveInputOutput-&gt;targetCryIfKeyId with the corresponding CryIf key ID.</p>
@@ -597,7 +597,7 @@
 <p>因为对于同步作业处理来说，队列排队可能用途不大。所以如果选择了同步作业处理，则建议把队列大小设定为 <strong>0</strong>。 但是，如果通道同时支持同步和异步作业，则队列排队机制还是有使用的必要。在 <strong>Csm_MainFunction</strong>() 中，可以将排队的作业传递给给 <strong>CRYIF</strong> 模块。</p>
 <p>如果当前作业的状态为活动状态，<strong>CSM</strong> 需假设映射的加密驱动程序实例当前正在处理该作业。当调用者希望继续操作（例如：使用 <strong>UPDATE</strong> 操作提供更多数据），加密驱动程序实例中必须执行合理性地检查（<strong>plausibility check</strong>）。</p>
 <h2 id="75-密钥管理">7.5. 密钥管理</h2>
-<p>属于密钥管理的服务需仅提供 Csm_<Service>() 函数。一个密钥（<strong>Key</strong>）可以包括一个或多个密钥元素（<strong>Key Element</strong>）组成。</p>
+<p>属于密钥管理的服务需仅提供 Csm_<Service>() 函数。一个密钥（**Key**）可以包括一个或多个密钥元素（**Key Element**）组成。</p>
 <p>密钥元素是密钥材料本身。如：</p>
 <ul>
 <li>初始化向量（<strong>initialization vector</strong>）。</li>
@@ -809,7 +809,7 @@
 <p>示例：用于签名生成的 ECC Brainpool 160 P1 密钥的定义。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -829,7 +829,7 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">P2CONST(uint8, AUTOMATIC, MSN_CONST) EccKey = { 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">P2CONST(uint8, AUTOMATIC, MSN_CONST) EccKey = { 
     0x12, 0x23, 0x34, ... 
 } ; // The required key value.
 
@@ -879,12 +879,12 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 初始化 <strong>CSM</strong> 模块。 在配置中 <strong>Csm</strong> 被分配给多个分区（即: <strong>Csm_MainFunctions</strong> 被映射到分区），<strong>Csm</strong> 可以为每个分区提供一个初始化函数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">void Csm_Init ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">void Csm_Init ( 
     const Csm_ConfigType* configPtr 
 )
 </code></pre></td></tr></table>
@@ -893,12 +893,12 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 返回此模块的版本信息。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">void Csm_GetVersionInfo ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">void Csm_GetVersionInfo ( 
     Std_VersionInfoType* versioninfo 
 )
 </code></pre></td></tr></table>
@@ -909,7 +909,7 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 使用给定的数据执行哈希计算并存储哈希。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -919,7 +919,7 @@ Csm_KeySetValid(MyEccKeyId);
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_Hash ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_Hash ( 
     uint32 jobId, 
     Crypto_OperationModeType mode, 
     const uint8* dataPtr, 
@@ -935,7 +935,7 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 使用给定数据执行 <strong>MAC</strong> 生成并将 <strong>MAC</strong> 存储在 <strong>MAC</strong> 指针指向的内存位置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -945,7 +945,7 @@ Csm_KeySetValid(MyEccKeyId);
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_MacGenerate ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_MacGenerate ( 
     uint32 jobId, 
     Crypto_OperationModeType mode, 
     const uint8* dataPtr, 
@@ -959,7 +959,7 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 通过比较是否使用给定数据生成 <strong>MAC</strong> 来验证给定的 <strong>MAC</strong>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -970,7 +970,7 @@ Csm_KeySetValid(MyEccKeyId);
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_MacVerify ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_MacVerify ( 
     uint32 jobId, 
     Crypto_OperationModeType mode, 
     const uint8* dataPtr, 
@@ -987,7 +987,7 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 加密给定数据并将密文存储在结果指针指向的内存位置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -997,7 +997,7 @@ Csm_KeySetValid(MyEccKeyId);
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_Encrypt ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_Encrypt ( 
     uint32 jobId, 
     Crypto_OperationModeType mode, 
     const uint8* dataPtr, 
@@ -1011,7 +1011,7 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 解密给定的加密数据，并将解密后的明文存储在结果指针指向的内存位置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1021,7 +1021,7 @@ Csm_KeySetValid(MyEccKeyId);
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_Decrypt ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_Decrypt ( 
     uint32 jobId, 
     Crypto_OperationModeType mode, 
     const uint8* dataPtr, 
@@ -1037,7 +1037,7 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 使用给定的输入数据执行 <strong>AEAD</strong> 加密，并将密文和 <strong>MAC</strong> 存储在密文指针和 <strong>Tag</strong> 指针指向的内存位置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1051,7 +1051,7 @@ Csm_KeySetValid(MyEccKeyId);
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_AEADEncrypt ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_AEADEncrypt ( 
     uint32 jobId, 
     Crypto_OperationModeType mode, 
     const uint8* plaintextPtr, 
@@ -1069,7 +1069,7 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 使用给定数据执行 <strong>AEAD</strong> 加密，并将密文和 <strong>MAC</strong> 存储在密文指针和 <strong>Tag</strong> 指针指向的内存位置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1084,7 +1084,7 @@ Csm_KeySetValid(MyEccKeyId);
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_AEADDecrypt ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_AEADDecrypt ( 
     uint32 jobId, 
     Crypto_OperationModeType mode, 
     const uint8* ciphertextPtr, 
@@ -1106,7 +1106,7 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 使用给定的数据进行签名计算，并将签名存储在结果指针指向的内存位置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1116,7 +1116,7 @@ Csm_KeySetValid(MyEccKeyId);
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_SignatureGenerate ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_SignatureGenerate ( 
     uint32 jobId, 
     Crypto_OperationModeType mode, 
     const uint8* dataPtr, 
@@ -1130,7 +1130,7 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 通过比较是否使用给定数据生成签名来验证给定的 <strong>MAC</strong>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1141,7 +1141,7 @@ Csm_KeySetValid(MyEccKeyId);
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_SignatureVerify ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_SignatureVerify ( 
     uint32 jobId, 
     Crypto_OperationModeType mode, 
     const uint8* dataPtr, 
@@ -1160,14 +1160,14 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 产生一个随机数，存放在结果指针指向的内存位置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_RandomGenerate ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_RandomGenerate ( 
     uint32 jobId, 
     uint8* resultPtr, 
     uint32* resultLengthPtr
@@ -1184,7 +1184,7 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 将给定的密钥元素字节设置为由 <strong>keyId</strong> 标识的键。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1192,7 +1192,7 @@ Csm_KeySetValid(MyEccKeyId);
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyElementSet ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyElementSet ( 
     uint32 keyId, 
     uint32 keyElementId, 
     const uint8* keyElementPtr, 
@@ -1204,12 +1204,12 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 将由 <strong>keyId</strong> 标识的密钥的密钥状态设置为有效。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeySetValid ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeySetValid ( 
     uint32 keyId 
 )
 </code></pre></td></tr></table>
@@ -1218,12 +1218,12 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 将密钥状态设置为无效。密钥不能再用于加密操作，直到它再次被设置为有效状态。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeySetInvalid ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeySetInvalid ( 
     uint32 keyId 
 )
 </code></pre></td></tr></table>
@@ -1233,13 +1233,13 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 返回由 <strong>keyId</strong> 标识的密钥的密钥状态。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyGetStatus ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyGetStatus ( 
     uint32 keyId, 
     Crypto_KeyStatusType* keyStatusPtr
 )
@@ -1250,7 +1250,7 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 从由 <strong>keyId</strong> 标识的密钥的特定密钥元素中检索密钥元素字节，并将密钥元素存储在密钥指针指向的内存位置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1258,7 +1258,7 @@ Csm_KeySetValid(MyEccKeyId);
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyElementGet ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyElementGet ( 
     uint32 keyId, 
     uint32 keyElementId, 
     uint8* keyElementPtr, 
@@ -1271,7 +1271,7 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 此函数将密钥元素从一个密钥复制到目标键。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1279,7 +1279,7 @@ Csm_KeySetValid(MyEccKeyId);
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyElementCopy ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyElementCopy ( 
     const uint32 keyId, 
     const uint32 keyElementId, 
     const uint32 targetKeyId, 
@@ -1291,13 +1291,13 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 此函数将所有密钥元素从源密钥复制到目标密钥。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyCopy ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyCopy ( 
     const uint32 keyId, 
     const uint32 targetKeyId 
 )
@@ -1307,7 +1307,7 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 将一个密钥元素复制到同一加密驱动程序中的另一个密钥元素。 keyElementSourceOffset 和 keyElementCopyLength 允许仅将源密钥元素的一部分复制到目标中。目标键的偏移量也用这个函数指定。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1318,7 +1318,7 @@ Csm_KeySetValid(MyEccKeyId);
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyElementCopyPartial ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyElementCopyPartial ( 
     uint32 keyId, 
     uint32 keyElementId, 
     uint32 keyElementSourceOffset, 
@@ -1340,14 +1340,14 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 为密钥元素 <strong>CRYPTO_KE_RANDOM_SEED</strong> 提供随机种子。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_RandomSeed ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_RandomSeed ( 
     uint32 keyId, 
     const uint8* seedPtr, 
     uint32 seedLength 
@@ -1358,12 +1358,12 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 生成新的密钥材料并将其存储在由 keyId 标识的密钥中。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyGenerate ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyGenerate ( 
     uint32 keyId 
 )
 </code></pre></td></tr></table>
@@ -1375,13 +1375,13 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 使用由 <strong>keyId</strong> 标识的给定密钥中的密钥元素派生新密钥。给定的密钥包含密码和盐的密钥元素。派生密钥存储在由 <strong>targetCryptoKeyId</strong> 标识的密钥的 <strong>ID</strong> 为 1 的密钥元素中。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyDerive ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyDerive ( 
     uint32 keyId, 
     uint32 targetKeyId 
 )
@@ -1430,14 +1430,14 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 计算当前用户用于密钥交换的公钥，并将公钥存储在公钥指针指向的内存位置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyExchangeCalcPubVal ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyExchangeCalcPubVal ( 
     uint32 keyId, 
     uint8* publicValuePtr, 
     uint32* publicValueLengthPtr 
@@ -1448,14 +1448,14 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 计算共享密钥，用于与由keyId标识的密钥的密钥材料和伙伴公钥进行密钥交换。共享密钥存储为同一密钥中的密钥元素。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyExchangeCalcSecret ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_KeyExchangeCalcSecret ( 
     uint32 keyId, 
     const uint8* partnerPublicValuePtr, 
     uint32 partnerPublicValueLength
@@ -1467,12 +1467,12 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 必要时存储密钥，并将 <strong>keyId</strong> 标识的密钥的密钥状态设置为有效。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_JobKeySetValid ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_JobKeySetValid ( 
     uint32 jobId 
 )
 </code></pre></td></tr></table>
@@ -1481,12 +1481,12 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 将密钥状态设置为无效。密钥不能再用于加密操作，直到它再次被设置为有效状态。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_JobKeySetInvalid ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_JobKeySetInvalid ( 
     uint32 jobId
 )
 </code></pre></td></tr></table>
@@ -1495,14 +1495,14 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 为用于关联随机数生成器的指定密钥提供新种子。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_JobRandomSeed ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_JobRandomSeed ( 
     uint32 jobId, 
     const uint8* seedPtr, 
     uint32 seedLength 
@@ -1513,12 +1513,12 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 生成新的密钥材料并将其存储在由 <strong>keyId</strong> 标识的密钥中。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_JobKeyGenerate ( 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Std_ReturnType Csm_JobKeyGenerate ( 
     uint32 jobId 
 )
 </code></pre></td></tr></table>
@@ -1527,13 +1527,13 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 使用由 keyId 标识的给定密钥中的密钥元素派生新密钥。给定的密钥包含password和Salt的密钥元素。派生密钥存储在由 <strong>targetCryptoKeyId</strong> 标识的密钥的 ID 为 1 的密钥元素中。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="n">Std_ReturnType</span> <span class="n">Csm_JobKeyDerive</span> <span class="p">(</span> 
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="n">Std_ReturnType</span> <span class="n">Csm_JobKeyDerive</span> <span class="p">(</span> 
     <span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> 
     <span class="n">uint32</span> <span class="n">targetKeyId</span> 
 <span class="p">)</span>
@@ -1543,14 +1543,14 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 计算当前用户用于密钥交换的公钥，并将公钥存储在公钥指针指向的内存位置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="n">Std_ReturnType</span> <span class="n">Csm_JobKeyExchangeCalcPubVal</span> <span class="p">(</span> 
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="n">Std_ReturnType</span> <span class="n">Csm_JobKeyExchangeCalcPubVal</span> <span class="p">(</span> 
     <span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> 
     <span class="n">uint8</span><span class="o">*</span> <span class="n">publicValuePtr</span><span class="p">,</span> 
     <span class="n">uint32</span><span class="o">*</span> <span class="n">publicValueLengthPtr</span> 
@@ -1561,14 +1561,14 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 计算共享密钥，用于与由keyId标识的密钥的密钥材料和伙伴公钥进行密钥交换。共享密钥存储为同一密钥中的密钥元素。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="n">Std_ReturnType</span> <span class="n">Csm_JobKeyExchangeCalcSecret</span> <span class="p">(</span> 
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="n">Std_ReturnType</span> <span class="n">Csm_JobKeyExchangeCalcSecret</span> <span class="p">(</span> 
     <span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> 
     <span class="k">const</span> <span class="n">uint8</span><span class="o">*</span> <span class="n">partnerPublicValuePtr</span><span class="p">,</span> 
     <span class="n">uint32</span> <span class="n">partnerPublicValueLength</span> 
@@ -1580,14 +1580,14 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 加密驱动程序将相应加密操作的内部上下文存储到 contextBuffer。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C" data-lang="C"><span class="n">Std_ReturnType</span> <span class="n">Csm_SaveContextJob</span> <span class="p">(</span> 
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="n">Std_ReturnType</span> <span class="n">Csm_SaveContextJob</span> <span class="p">(</span> 
     <span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> 
     <span class="n">uint8</span><span class="o">*</span> <span class="n">contextBufferPtr</span><span class="p">,</span> 
     <span class="n">uint32</span><span class="o">*</span> <span class="n">contextBufferLengthPtr</span> 
@@ -1598,14 +1598,14 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 加密驱动程序从 contextBuffer 中提取上下文数据并恢复内部状态，以便此加密服务的进一步加密操作将在获取上下文的确切时间点继续。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C" data-lang="C"><span class="n">Std_ReturnType</span> <span class="n">Csm_RestoreContextJob</span> <span class="p">(</span> 
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="n">Std_ReturnType</span> <span class="n">Csm_RestoreContextJob</span> <span class="p">(</span> 
     <span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> 
     <span class="n">uint8</span><span class="o">*</span> <span class="n">contextBufferPtr</span><span class="p">,</span> 
     <span class="n">uint32</span> <span class="n">contextBufferLength</span> 
@@ -1617,13 +1617,13 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 取消异步或流作业的作业处理。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C" data-lang="C"><span class="n">Std_ReturnType</span> <span class="n">Csm_CancelJob</span> <span class="p">(</span> 
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="n">Std_ReturnType</span> <span class="n">Csm_CancelJob</span> <span class="p">(</span> 
     <span class="n">uint32</span> <span class="n">job</span><span class="p">,</span> 
     <span class="n">Crypto_OperationModeType</span> <span class="n">mode</span> 
 <span class="p">)</span>
@@ -1634,13 +1634,13 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 通知 CSM 作业已完成。 该函数由底层（CRYIF）使用。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C" data-lang="C"><span class="kt">void</span> <span class="n">Csm_CallbackNotification</span> <span class="p">(</span> 
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="kt">void</span> <span class="n">Csm_CallbackNotification</span> <span class="p">(</span> 
     <span class="n">Crypto_JobType</span><span class="o">*</span> <span class="n">job</span><span class="p">,</span> 
     <span class="n">Crypto_ResultType</span> <span class="n">result</span> 
 <span class="p">)</span>
@@ -1651,12 +1651,12 @@ Csm_KeySetValid(MyEccKeyId);
 <p><strong>说明</strong>: 此 <strong>API</strong> 被周期性的调用以处理请求的作业。<strong>Csm_MainFunction</strong> 应检查作业队列以传递给底层 CRYIF。每个已配置的 <strong>CsmMainFunction</strong> 实例应实施一个 Csm_MainFunction_。 其中是ECU配置中CsmMainFunction配置容器的简称。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="n">Csm_MainFunction</span> <span class="p">(</span> 
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="n">Csm_MainFunction</span> <span class="p">(</span> 
     <span class="kt">void</span> 
 <span class="p">)</span>
 </code></pre></td></tr></table>
@@ -1689,7 +1689,7 @@ Csm_KeySetValid(MyEccKeyId);
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Janyd</a></span></div>
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Janyd</a></span></div>
         </div>
     </footer></div>
 
@@ -1698,5 +1698,5 @@ Csm_KeySetValid(MyEccKeyId);
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"valine":{"appId":"cIRpq8figzQxyGz5LyAdUahJ-gzGzoHsz","appKey":"T9YWfgGhznKaXXx7TCLxzS3C","avatar":"robohash","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":true,"highlight":true,"lang":true,"meta":true,"pageSize":true,"placeholder":"说点什么吧...","recordIP":null,"visitor":true}},"data":{"id-1":"奋斗的年轻人","id-2":"奋斗的年轻人"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"valine":{"appId":"cIRpq8figzQxyGz5LyAdUahJ-gzGzoHsz","appKey":"T9YWfgGhznKaXXx7TCLxzS3C","avatar":"robohash","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":true,"highlight":true,"lang":true,"meta":true,"pageSize":true,"placeholder":"说点什么吧...","recordIP":true,"visitor":true}},"data":{"id-1":"奋斗","id-2":"奋斗"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>
