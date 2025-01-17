@@ -15,14 +15,6 @@
     <description><![CDATA[0 总述 以下只是些东拼西凑的关于SOME/IP的简单介绍，如果想要基于协议进行项目开发，还请进一步查看参 考文献中标准协议的规范说明文档，进行系]]></description>
 </item>
 <item>
-    <title>Crypto Service Manager</title>
-    <link>https://Janyd-zz.github.io/10_crypto-service-manager/</link>
-    <pubDate>Sun, 25 Jun 2023 20:27:31 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://Janyd-zz.github.io/10_crypto-service-manager/</guid>
-    <description><![CDATA[1. 简介和功能概述 本文介绍了软件模块 CSM 加密服务管理器的功能、API 和配置，以对应 CSM 需求规范中的顶级要求。 CSM 需提供同步或异步服务，并实现对所有软]]></description>
-</item>
-<item>
     <title>Autosar概念：Callout与Callback</title>
     <link>https://Janyd-zz.github.io/9_autosar%E6%A6%82%E5%BF%B5callout%E4%B8%8Ecallback/</link>
     <pubDate>Tue, 29 Mar 2022 20:18:26 &#43;0800</pubDate>
@@ -85,6 +77,14 @@
     <author>作者</author>
     <guid>https://Janyd-zz.github.io/3_stm32f103%E4%B9%8Bio%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</guid>
     <description><![CDATA[1. GPIO工作方式 STM32的 IO口可以由软件配置成 如下 8种模式： 1、 输入浮空 2、 输入上拉 3、 输入下拉 4、 模拟输入 5、 开漏输出 6、 推挽输出 7]]></description>
+</item>
+<item>
+    <title>开篇</title>
+    <link>https://Janyd-zz.github.io/0_%E5%BC%80%E7%AF%87/</link>
+    <pubDate>Tue, 23 Mar 2021 22:08:21 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://Janyd-zz.github.io/0_%E5%BC%80%E7%AF%87/</guid>
+    <description><![CDATA[夜色，将无尽的代码淹没； 零一，又将世界重新点燃。 记录一位汽车电子攻城狮的搬砖路。 码不停蹄，学无止境。 加油！]]></description>
 </item>
 </channel>
 </rss>
