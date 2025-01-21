@@ -18,5 +18,14 @@
       <description>0 总述 以下只是些东拼西凑的关于SOME/IP的简单介绍，如果想要基于协议进行项目开发，还请进一步查看参考文献中标准协议的规范说明文档，进行系</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://Janyd-zz.github.io/postdraft/17_linux%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>875392448@qq.com (Janyd)</author>
+      <guid>https://Janyd-zz.github.io/postdraft/17_linux%E9%85%8D%E7%BD%AE/</guid>
+      <description>1. Ubuntu1804更换软件源 清华大学开源软件镜像站 https://mirrors.tuna.tsinghua.edu.cn/ 使用帮助-&amp;gt;选择“Ubuntu”-&amp;gt;勾选相关选项，生成源list 将sou</description>
+    </item>
+    
   </channel>
 </rss>

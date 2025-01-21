@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title> - Janydの博客 - 在记录中成长自己</title><meta name="Description" content="奋斗的年轻人做的网站"><meta property="og:title" content="" />
+<meta property="og:description" content="1. Ubuntu1804更换软件源 清华大学开源软件镜像站 https://mirrors.tuna.tsinghua.edu.cn/ 使用帮助-&gt;选择“Ubuntu”-&gt;勾选相关选项，生成源list 将sou" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Janyd-zz.github.io/postdraft/17_linux%E9%85%8D%E7%BD%AE/" /><meta property="og:image" content="https://Janyd-zz.github.io/head_xiaoxin.jpg"/><meta property="article:section" content="postdraft" />
+
+<meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://Janyd-zz.github.io/head_xiaoxin.jpg"/>
+
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="1. Ubuntu1804更换软件源 清华大学开源软件镜像站 https://mirrors.tuna.tsinghua.edu.cn/ 使用帮助-&gt;选择“Ubuntu”-&gt;勾选相关选项，生成源list 将sou"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://Janyd-zz.github.io/postdraft/17_linux%E9%85%8D%E7%BD%AE/" /><link rel="next" href="https://Janyd-zz.github.io/postdraft/16_someip_%E6%A6%82%E8%BF%B0/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/Janyd-zz.github.io\/postdraft\/17_linux%E9%85%8D%E7%BD%AE\/"
+        },"image": ["https:\/\/Janyd-zz.github.io\/images\/Apple-Devices-Preview.png"],"genre": "postdraft","wordcount":  3063 ,
+        "url": "https:\/\/Janyd-zz.github.io\/postdraft\/17_linux%E9%85%8D%E7%BD%AE\/","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Janyd","logo": "https:\/\/Janyd-zz.github.io\/images\/head_xiaoxin.jpg"},"author": {
+                "@type": "Person",
+                "name": "Janyd"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Janydの博客 - 在记录中成长自己"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Janydの博客 - 在记录中成长自己"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster"></h1><div class="content" id="content"><h1 id="1-ubuntu1804更换软件源">1. Ubuntu1804更换软件源</h1>
+<p>清华大学开源软件镜像站</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreffer ">https://mirrors.tuna.tsinghua.edu.cn/</a></p>
+<p>使用帮助-&gt;选择“Ubuntu”-&gt;勾选相关选项，生成源list</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../../static/post_picture/17_picture/p1.png"
+        data-srcset="../../static/post_picture/17_picture/p1.png, ../../static/post_picture/17_picture/p1.png 1.5x, ../../static/post_picture/17_picture/p1.png 2x"
+        data-sizes="auto"
+        alt="../../static/post_picture/17_picture/p1.png"
+        title="1.png" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../../static/post_picture/17_picture/p2.png"
+        data-srcset="../../static/post_picture/17_picture/p2.png, ../../static/post_picture/17_picture/p2.png 1.5x, ../../static/post_picture/17_picture/p2.png 2x"
+        data-sizes="auto"
+        alt="../../static/post_picture/17_picture/p2.png"
+        title="2.png" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../../static/post_picture/17_picture/p3.png"
+        data-srcset="../../static/post_picture/17_picture/p3.png, ../../static/post_picture/17_picture/p3.png 1.5x, ../../static/post_picture/17_picture/p3.png 2x"
+        data-sizes="auto"
+        alt="../../static/post_picture/17_picture/p3.png"
+        title="3.png" /></p>
+<p>将source.list备份，并粘贴清华源网页生成的源list</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">cd etc/apt
+
+sudo cp sources.list sources.list_backup
+sudo vi sources.list
+:1,$d
+右键粘贴
+:wq
+sudo apt-get update
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="2shell">2. shell</h1>
+<p>创建shell文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">touch hello.sh
+</code></pre></td></tr></table>
+</div>
+</div><p>赋予可执行权限</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">chmod +x hello.sh
+</code></pre></td></tr></table>
+</div>
+</div><p>编辑shell文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">echo</span> -e <span class="s2">&#34;hello world!&#34;</span>                                                      4,0-1         All
+</code></pre></td></tr></table>
+</div>
+</div><p>执行shell文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">./hello.sh
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="3docker">3.docker</h1>
+<h2 id="1-docker安装">(1) docker安装</h2>
+<p><a href="https://get.docker.com/" target="_blank" rel="noopener noreffer ">https://get.docker.com/</a></p>
+<p><a href="https://docs.docker.com/engine/install/ubuntu" target="_blank" rel="noopener noreffer ">https://docs.docker.com/engine/install/ubuntu</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">#删除旧版本docker
+sudo apt-get remove docker docker-engine docker.io containerd runc
+
+#使用脚本自动安装docker
+sudo apt install curl
+curl -fsSL https://get.docker.com -o install-docker.sh
+sudo sh install-docker.sh --mirror Aliyun
+
+#添加当前用户到docker用户组
+sudo groupadd docker
+sudo usermod -aG docker $USER
+echo $USER
+
+#启动docker
+systemctl enable docker
+systemctl start docker
+systemctl status docker
+
+#测试是否成功
+sudo docker run --rm hello-world
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="2-docker使用">(2) docker使用</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">#从docker hub拉取镜像，repository为ubuntu,TAG命名为18.04
+docker pull ubuntu:18.04
+
+#查看容器镜像
+docker images
+
+#查看正在运行的容器
+docker container ps
+
+#查看所有的容器,包含正在运行的和不在运行的
+docker container ps -a
+
+#查看容器的大小
+docker container ps -a --size
+
+#创建容器
+docker run -it --name my-ubuntu-18.04 --hostname hello ubuntu:18.04
+
+#创建一个容器，-v将主机/home/janyd/readme挂载到容器的/root/readme
+docker run -it -v /home/janyd/readme:/root/readme --name ubuntu-data --hostname data ubuntu:18.04
+
+#退出运行的容器
+exit
+
+#重新运行容器
+docker start ubuntu-data
+
+#进入该容器
+docker exec -it ubuntu-data bash
+
+#将容器打包导出来
+exit
+docker export ubuntu-data &gt; ubuntu-data.tar
+
+#将容器导入,TAG命名为为data
+docker import ubuntu-data.tar ubuntu:data
+
+#将ubuntu:data的镜像commit到ubuntu:data-v1
+docker commit ubuntu-data ubuntu-data-v1.0
+
+#将镜像save出去,镜像可以记录历史commit
+docker save ubuntu:data &gt; ubuntu-data-image.tar
+
+#导入镜像
+docker load -i ubuntu-data-image.tar
+
+#删除镜像
+docker image rm ubuntu:data
+
+#删除容器
+docker container rm my-ubuntu-18.04
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">janyd@janyd-VirtualBox:~$ cd ~/wkspaces/docker/
+janyd@janyd-VirtualBox:~/wkspaces/docker$ docker run -it -v /home/janyd/readme:/root/readme --name ubuntu-data --hostname data ubuntu:18.04
+root@data:/# ls 
+bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
+boot  etc  lib   media  opt  root  sbin  sys  usr
+root@data:/# 
+root@data:/# exit
+exit    
+janyd@janyd-VirtualBox:~/wkspaces/docker$ docker start ubuntu-data 
+ubuntu-data
+janyd@janyd-VirtualBox:~/wkspaces/docker$ docker exec -it ubuntu-data bash
+root@data:/# ls 
+bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
+boot  etc  lib   media  opt  root  sbin  sys  usr
+root@data:/# cd root/
+root@data:~# ls 
+readme
+root@data:~# cd readme/
+root@data:~/readme# ls 
+test.md
+root@data:~/readme# cd ..
+root@data:~# exit
+exit
+janyd@janyd-VirtualBox:~/wkspaces/docker$ docker export ubuntu-data &gt; ubuntu-data.tar
+janyd@janyd-VirtualBox:~/wkspaces/docker$ ls 
+install-docker.sh  ubuntu-data.tar
+janyd@janyd-VirtualBox:~/wkspaces/docker$ ls -ll
+total 64024
+-rw-rw-r-- 1 janyd janyd    21927 3月   3 17:30 install-docker.sh
+-rw-rw-r-- 1 janyd janyd 65532416 3月   5 21:39 ubuntu-data.tar
+janyd@janyd-VirtualBox:~/wkspaces/docker$ docker import ubuntu-data.tar ubuntu:data
+sha256:c4e96ae3aa7e4f367213e8bd7f466f8c4f0558983bd9df9773e084a570d85fcd
+janyd@janyd-VirtualBox:~/wkspaces/docker$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED          SIZE
+ubuntu        data      c4e96ae3aa7e   10 seconds ago   63.2MB
+ubuntu        18.04     f9a80a55f492   9 months ago     63.2MB
+hello-world   latest    d2c94e258dcb   10 months ago    13.3kB
+janyd@janyd-VirtualBox:~/wkspaces/docker$ docker save ubuntu:data &gt; ubuntu-data-image.tar
+janyd@janyd-VirtualBox:~/wkspaces/docker$ ls -ll
+total 128032
+-rw-rw-r-- 1 janyd janyd    21927 3月   3 17:30 install-docker.sh
+-rw-rw-r-- 1 janyd janyd 65540608 3月   5 21:52 ubuntu-data-image.tar
+-rw-rw-r-- 1 janyd janyd 65532416 3月   5 21:39 ubuntu-data.tar
+janyd@janyd-VirtualBox:~/wkspaces/docker$ docker container ps
+CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS          PORTS     NAMES
+f833ef9e35ac   ubuntu:18.04   &#34;/bin/bash&#34;   36 minutes ago   Up 34 minutes             ubuntu-data
+janyd@janyd-VirtualBox:~/wkspaces/docker$ docker commit ubuntu-data ubuntu-data-v1.0
+sha256:194af3f96753982d38ae7c1c5a206d2623694409eb26722f633f027555e06c22
+janyd@janyd-VirtualBox:~/wkspaces/docker$ docker images
+REPOSITORY         TAG       IMAGE ID       CREATED          SIZE
+ubuntu-data-v1.0   latest    194af3f96753   16 seconds ago   63.2MB
+ubuntu             data      c4e96ae3aa7e   20 minutes ago   63.2MB
+ubuntu             18.04     f9a80a55f492   9 months ago     63.2MB
+hello-world        latest    d2c94e258dcb   10 months ago    13.3kB
+janyd@janyd-VirtualBox:~/wkspaces/docker$ docker image rm ubuntu:data
+Untagged: ubuntu:data
+Deleted: sha256:c4e96ae3aa7e4f367213e8bd7f466f8c4f0558983bd9df9773e084a570d85fcd
+Deleted: sha256:3ee5eff663dd8269c6c3e350973eb347c4c17e3088ba3734bb1046202f5891e1
+janyd@janyd-VirtualBox:~/wkspaces/docker$ docker load -i ubuntu-data-image.tar
+3ee5eff663dd: Loading layer  65.53MB/65.53MB
+Loaded image: ubuntu:data
+janyd@janyd-VirtualBox:~/wkspaces/docker$ docker images
+REPOSITORY         TAG       IMAGE ID       CREATED          SIZE
+ubuntu-data-v1.0   latest    194af3f96753   4 minutes ago    63.2MB
+ubuntu             data      c4e96ae3aa7e   24 minutes ago   63.2MB
+ubuntu             18.04     f9a80a55f492   9 months ago     63.2MB
+hello-world        latest    d2c94e258dcb   10 months ago    13.3kB
+janyd@janyd-VirtualBox:~/wkspaces/docker$ docker image rm ubuntu:data
+Untagged: ubuntu:data
+Deleted: sha256:c4e96ae3aa7e4f367213e8bd7f466f8c4f0558983bd9df9773e084a570d85fcd
+Deleted: sha256:3ee5eff663dd8269c6c3e350973eb347c4c17e3088ba3734bb1046202f5891e1
+janyd@janyd-VirtualBox:~/wkspaces/docker$ docker images
+REPOSITORY         TAG       IMAGE ID       CREATED         SIZE
+ubuntu-data-v1.0   latest    194af3f96753   5 minutes ago   63.2MB
+ubuntu             18.04     f9a80a55f492   9 months ago    63.2MB
+hello-world        latest    d2c94e258dcb   10 months ago   13.3kB
+janyd@janyd-VirtualBox:~/wkspaces/docker$ docker image rm 
+hello-world:latest       ubuntu:18.04             ubuntu-data-v1.0:latest  
+janyd@janyd-VirtualBox:~/wkspaces/docker$ docker image rm ubuntu-data-v1.0:latest 
+Untagged: ubuntu-data-v1.0:latest
+Deleted: sha256:194af3f96753982d38ae7c1c5a206d2623694409eb26722f633f027555e06c22
+Deleted: sha256:ada441b78cd23d8ca55ac72680224620558f1d7eafec1923b15ec6aefe0beeca
+janyd@janyd-VirtualBox:~/wkspaces/docker$ 
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="4常规配置">4.常规配置</h1>
+<h2 id="1更改语言">(1)更改语言</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../../static/post_picture/17_picture/p4.png"
+        data-srcset="../../static/post_picture/17_picture/p4.png, ../../static/post_picture/17_picture/p4.png 1.5x, ../../static/post_picture/17_picture/p4.png 2x"
+        data-sizes="auto"
+        alt="../../static/post_picture/17_picture/p4.png"
+        title="4.png" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../../static/post_picture/17_picture/p5.png"
+        data-srcset="../../static/post_picture/17_picture/p5.png, ../../static/post_picture/17_picture/p5.png 1.5x, ../../static/post_picture/17_picture/p5.png 2x"
+        data-sizes="auto"
+        alt="../../static/post_picture/17_picture/p5.png"
+        title="5.png" /></p>
+<h2 id="2软件与卸载">(2)软件与卸载</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo apt-get install vim
+sudo apt-get remove vim
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://cn.bing.com/" target="_blank" rel="noopener noreffer ">https://cn.bing.com/</a></p>
+<h2 id="3取消sudo密码">(3)取消SUDO密码</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo visudo
+</code></pre></td></tr></table>
+</div>
+</div><p>修改这2个位置，增加NOPASSWD:，注意NOPASSWD:的冒号，且前后有空格</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../../static/post_picture/17_picture/p6.png"
+        data-srcset="../../static/post_picture/17_picture/p6.png, ../../static/post_picture/17_picture/p6.png 1.5x, ../../static/post_picture/17_picture/p6.png 2x"
+        data-sizes="auto"
+        alt="../../static/post_picture/17_picture/p6.png"
+        title="6.png" /></p>
+<h2 id="4升级cmake">(4)升级Cmake</h2>
+<p><a href="https://cmake.org/files/" target="_blank" rel="noopener noreffer ">https://cmake.org/files/</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">tar -xvzf cmake-3.22.1.tar.gz
+chmod 777 ./configure
+./configure
+make
+sudo make install
+sudo update-alternatives --install /usr/bin/cmake cmake /usr/local/bin/cmake 1 --force
+cmake --version
+
+完美解决问题，只是在./configure那里失败的话加一句sudo apt-get install libssl-dev就更好了
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="5空间扩容">(5)空间扩容</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../../static/post_picture/17_picture/p15.png"
+        data-srcset="../../static/post_picture/17_picture/p15.png, ../../static/post_picture/17_picture/p15.png 1.5x, ../../static/post_picture/17_picture/p15.png 2x"
+        data-sizes="auto"
+        alt="../../static/post_picture/17_picture/p15.png"
+        title="15.png" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo apt install gparted
+sudo gparted
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="6安装wireshark">(6)安装wireshark</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo apt-get install -y build-essential cmake libgtk-3-dev libpcap-dev qtbase5-dev \
+libc-ares-dev libssl-dev libnl-3-dev libnl-genl-3-dev ethtool flex bison libpcre2-dev \
+qttools5-dev qttools5-dev-tools libqt5svg5-dev qtmultimedia5-dev
+
+cd wireshark-3.16.4
+
+mkdir build
+
+cd build
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+
+##报错，少装了一个库GCRYPT
+##搜索
+sudo apt search GCRYPT*
+
+sudo apt install libgcrypt20-dev
+
+make
+
+sudo make install
+
+cd usr/bin
+sudo ./wireshark
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="5vsomeip">5.VSOMEIP</h1>
+<h2 id="1vsomeip环境搭建">(1)vSOMEIP环境搭建</h2>
+<p><strong>安装Cmake,gcc,build-essential</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo apt install cmake
+sudo apt install gcc
+sudo apt install build-essential
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>编译和安装Boost库：</strong></p>
+<p><a href="https://boostorg.jfrog.io/artifactory/main/release/" target="_blank" rel="noopener noreffer ">https://boostorg.jfrog.io/artifactory/main/release/</a></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../../static/post_picture/17_picture/p8.png"
+        data-srcset="../../static/post_picture/17_picture/p8.png, ../../static/post_picture/17_picture/p8.png 1.5x, ../../static/post_picture/17_picture/p8.png 2x"
+        data-sizes="auto"
+        alt="../../static/post_picture/17_picture/p8.png"
+        title="8.png" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">tar --bzip2 -xf boost_1_76_0.tar.bz2
+cd boost_1_76_0/
+./bootstrap.sh
+./b2 link=shared
+sudo ./b2 install
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>编译和安装序列化中间件vSOMEIP库：</strong></p>
+<p><a href="https://gitee.com/mirrors/vsomeip" target="_blank" rel="noopener noreffer ">Gitee 极速下载/vsomeip</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">cd ~/wkspaces/vSOMEIP/vsomeip
+sudo rm -rf build/
+mkdir build
+cd ~/wkspaces/vSOMEIP/vsomeip/build
+cmake -DENABLE_MULTIPLE_ROUTING_MANAGERS=1 ..
+make
+sudo make install
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>安装Common API库（runtime lib和someip lib）</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">cd capicxx-core-runtime/
+sudo rm -rf build/
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">cd capicxx-someip-runtime/
+sudo rm -rf build/
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="2vsomeip建模与框架代码生成">(2)vSOMEIP建模与框架代码生成</h2>
+<p><strong>将demo示例中的fidl文件和fdepl拷贝到相应的代码生成器中</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../../static/post_picture/17_picture/p9.png"
+        data-srcset="../../static/post_picture/17_picture/p9.png, ../../static/post_picture/17_picture/p9.png 1.5x, ../../static/post_picture/17_picture/p9.png 2x"
+        data-sizes="auto"
+        alt="../../static/post_picture/17_picture/p9.png"
+        title="9.png" /></p>
+<div>
+<pre><font color="#8AE234"><b>janyd@janyd-VirtualBox</b></font>:<font color="#729FCF"><b>~/wkspaces/helloworld_demo/commonapi_someip_demo/fidl</b></font>$ cp HelloWorld.fidl ../../../commonapi_core_generator
+<font color="#8AE234"><b>janyd@janyd-VirtualBox</b></font>:<font color="#729FCF"><b>~/wkspaces/helloworld_demo/commonapi_someip_demo/fidl</b></font>$ cp HelloWorld.fidl ../../../commonapi_someip_generator
+<font color="#8AE234"><b>janyd@janyd-VirtualBox</b></font>:<font color="#729FCF"><b>~/wkspaces/helloworld_demo/commonapi_someip_demo/fidl</b></font>$ cp HelloWorld.fdepl ../../../commonapi_someip_generator
+</pre>
+</div>
+<p><strong>commonapi_core_generator赋予代码生成器可执行权限</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../../static/post_picture/17_picture/p10.png"
+        data-srcset="../../static/post_picture/17_picture/p10.png, ../../static/post_picture/17_picture/p10.png 1.5x, ../../static/post_picture/17_picture/p10.png 2x"
+        data-sizes="auto"
+        alt="../../static/post_picture/17_picture/p10.png"
+        title="10.png" /></p>
+<p><strong>安装代码生成器依赖的java jdk</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo apt install openjdk-8-jdk
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>commonapi_core_generator生成框架代码</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">./commonapi-core-generator-linux-x86_64 -sk HelloWorld.fidl
+</code></pre></td></tr></table>
+</div>
+</div><p>commonapi_core_generator/src-gen/v1/commonapi 路径下生成了代码</p>
+<p><strong>commonapi_someip_generator赋予代码生成器可执行权限</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../../static/post_picture/17_picture/p10.png"
+        data-srcset="../../static/post_picture/17_picture/p10.png, ../../static/post_picture/17_picture/p10.png 1.5x, ../../static/post_picture/17_picture/p10.png 2x"
+        data-sizes="auto"
+        alt="../../static/post_picture/17_picture/p10.png"
+        title="10.png" /></p>
+<p><strong>commonapi_someip_generator生成框架代码</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">./commonapi-someip-generator-linux-x86_64 HelloWorld.fdepl
+</code></pre></td></tr></table>
+</div>
+</div><p>commonapi_someip_generator/src-gen/v1/commonapi路径下生成了代码</p>
+<h2 id="3dbus-app运行调试">(3)dbus APP运行、调试</h2>
+<p><strong>将commonapi_core_generator和commonapi_someip_generator中生成的代码拷贝到demo示例中src-gen目录下</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">cp -rf ~/wkspaces/commonapi_core_generator/src-gen/*  ~/wkspaces/helloworld_demo/commonapi_someip_demo/src-gen/
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">cp -rf ~/wkspaces/commonapi_someip_generator/src-gen/* ~/wkspaces/helloworld_demo/commonapi_someip_demo/src-gen/
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../../static/post_picture/17_picture/p12.png"
+        data-srcset="../../static/post_picture/17_picture/p12.png, ../../static/post_picture/17_picture/p12.png 1.5x, ../../static/post_picture/17_picture/p12.png 2x"
+        data-sizes="auto"
+        alt="../../static/post_picture/17_picture/p12.png"
+        title="12.png" /></p>
+<p><strong>CMakeLists.txt</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">PROJECT(HelloWorldDemo)
+cmake_minimum_required(VERSION 3.5)
+
+set(CMAKE_CXX_FLAGS &#34;${CMAKE_CXX_FLAGS} -pthread -std=c++0x&#34;)
+include_directories(
+    src-gen
+    /usr/local/include/CommonAPI-3.2
+    /usr/local/include/vsomeip
+)
+link_directories(
+    /usr/local/lib
+)
+add_executable(HelloWorldClient
+    src/HelloWorldClient.cpp
+    src-gen/v1/commonapi/HelloWorldSomeIPProxy.cpp
+    src-gen/v1/commonapi/HelloWorldSomeIPDeployment.cpp
+)
+target_link_libraries(HelloWorldClient CommonAPI CommonAPI-SomeIP vsomeip3)
+add_executable(HelloWorldService
+    src/HelloWorldService.cpp
+    src/HelloWorldStubImpl.cpp
+    src-gen/v1/commonapi/HelloWorldSomeIPStubAdapter.cpp
+    # src-gen/v1/commonapi/HelloWorldStubDefault.cpp
+    src-gen/v1/commonapi/HelloWorldSomeIPDeployment.cpp
+)
+target_link_libraries(HelloWorldService CommonAPI CommonAPI-SomeIP vsomeip3)
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">cd ~/wkspaces/helloworld_demo/commonapi_someip_demo/build
+cmake ..
+make
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../../static/post_picture/17_picture/p13.png"
+        data-srcset="../../static/post_picture/17_picture/p13.png, ../../static/post_picture/17_picture/p13.png 1.5x, ../../static/post_picture/17_picture/p13.png 2x"
+        data-sizes="auto"
+        alt="../../static/post_picture/17_picture/p13.png"
+        title="13.png" /></p>
+<p><strong>窗口分屏：windows+左键，windows+右键</strong></p>
+<p><strong>创建commonapi.ini配置文件</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">touch commonapi.ini
+sudo vim commonapi.ini
+sudo cp commonapi.ini /etc
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>common.ini内容</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[default]
+binding=someip
+
+[logging]
+console=true
+file=
+dlt=
+level=
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>运行Server,Client</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../../static/post_picture/17_picture/p14.png"
+        data-srcset="../../static/post_picture/17_picture/p14.png, ../../static/post_picture/17_picture/p14.png 1.5x, ../../static/post_picture/17_picture/p14.png 2x"
+        data-sizes="auto"
+        alt="../../static/post_picture/17_picture/p14.png"
+        title="14.png" /></p>
+<h2 id="4docker中运行vsomeip之环境搭建">(4)docker中运行vSOMEIP之环境搭建</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker run -it --name vsomeip --hostname janyd ubuntu:18.04 /bin/bash
+
+docker container ps -a
+
+#重新运行容器
+docker start vsomeip
+
+#进入该容器
+docker exec -it vsomeip bash
+
+cd /home
+mkdir wkspaces
+
+apt update
+
+apt install build-essential
+apt install gcc
+apt install cmake
+
+##docker cp vSOMEIP vsomeip:home/wkspaces
+docker cp ~/Downloads/cmake-3.28.1.tar.gz vsomeip:home/wkspaces/
+##升级cmake步骤见上面
+
+docker cp boost_1_76_0.tar.bz2 vsomeip:home/wkspaces
+tar --bzip2 -xf boost_1_76_0.tar.bz2
+##安装boost同上面
+
+docker cp -rf ~/wkspaces/vsomeip vsomeip:home/wkspaces/
+##编译安装同上面
+
+docker cp ~/wkspaces/capicxx-core-runtime vsomeip:home/wkspaces/
+docker cp ~/wkspaces/capicxx-someip-runtime vsomeip:home/wkspaces/
+##编译安装同上面
+
+docker cp ~/wkspaces/helloworld_demo vsomeip:home/wkspaces/
+##
+
+
+#将配置好的容器commit到镜像,镜像名字vsomeip,TAG名字base
+docker commit vsomeip vsomeip:base
+#基于vsomeip:base启动一个容器，容器名字someipserver
+docker run -it --name someipserver --hostname server vsomeip:base /bin/bash
+##在server容器可执行文件目录/home/wkspaces/helloworld_demo/commonapi_someip_demo/build
+export VSOMEIP_CONFIGURATION=./server.json
+export VSOMEIP_APPLICATION_NAME=hello_world_service
+#查看
+env
+docker start someipserver
+docker exec -it someipserver bash
+##改用路径root@server:/home/wkspaces/vsomeip/examples/hello_world/build# 
+
+#基于vsomeip:base启动一个容器，容器名字someipclient
+docker run -it --name someipclient --hostname client vsomeip:base /bin/bash
+##在client容器可执行文件目录/home/wkspaces/helloworld_demo/commonapi_someip_demo/build
+export VSOMEIP_CONFIGURATION=./client.json
+export VSOMEIP_APPLICATION_NAME=hello_world_client
+#查看
+env
+docker start someipclient
+docker exec -it someipclient bash
+
+
+
+docker cp someipclient:/home/wkspaces/vsomeip/examples/hello_world/build/client.json ./ 
+docker cp someipserver:/home/wkspaces/vsomeip/examples/hello_world/build/server.json ./
+
+docker cp ~/wkspaces/vsomeip/examples/hello_world/build/hello_world_client someipclient:/home/wkspaces/vsomeip/examples/hello_world/build/
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">########server.json
+{
+    &#34;unicast&#34;: &#34;172.17.0.3&#34;,
+    &#34;logging&#34;: {
+        &#34;level&#34;: &#34;debug&#34;,
+        &#34;console&#34;: &#34;true&#34;
+    },
+    &#34;applications&#34;: [
+        {
+            &#34;name&#34;: &#34;hello_world_service&#34;,
+            &#34;id&#34;: &#34;0x4444&#34;
+        }
+    ],
+    &#34;services&#34;: [
+        {
+            &#34;service&#34;: &#34;0x1111&#34;,
+            &#34;instance&#34;: &#34;0x2222&#34;,
+            &#34;unreliable&#34;: &#34;30509&#34;
+        }
+    ],
+    &#34;routing&#34;: &#34;hello_world_service&#34;,
+    &#34;service-discovery&#34;: {
+        &#34;enable&#34;: &#34;true&#34;,
+        &#34;multicast&#34;:&#34;224.224.224.245&#34;,
+        &#34;port&#34;:&#34;30490&#34;,
+        &#34;protocol&#34;:&#34;udp&#34;,
+        &#34;inital_delay_min&#34;:&#34;10&#34;,
+        &#34;inital_delay_max&#34;:&#34;50&#34;,
+        &#34;repetitions_base_delay&#34;:&#34;50&#34;,
+        &#34;repetitions_max&#34;:&#34;3&#34;,
+        &#34;ttl&#34;:&#34;3&#34;,
+        &#34;cyclic_off_delay&#34;:&#34;1000&#34;,
+        &#34;request_response_delay&#34;:&#34;30&#34;
+    }
+}                                                                                                                                                            23,31-38      All
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">#########client.json          
+{
+    &#34;unicast&#34;: &#34;172.17.0.4&#34;,
+    &#34;logging&#34;: {
+        &#34;level&#34;: &#34;debug&#34;,
+        &#34;console&#34;: &#34;true&#34;
+    },
+    &#34;applications&#34;: [
+        {
+            &#34;name&#34;: &#34;hello_world_client&#34;,
+            &#34;id&#34;: &#34;0x5555&#34;
+        }
+    ],
+    &#34;services&#34;: [
+        {
+            &#34;service&#34;: &#34;0x1111&#34;,
+            &#34;instance&#34;: &#34;0x2222&#34;,
+            &#34;unreliable&#34;: &#34;30509&#34;
+        }
+    ],
+    &#34;routing&#34;: &#34;hello_world_client&#34;,
+    &#34;service-discovery&#34;: {
+        &#34;enable&#34;: &#34;true&#34;,
+        &#34;multicast&#34;:&#34;224.224.224.245&#34;,
+        &#34;port&#34;:&#34;30490&#34;,
+        &#34;protocol&#34;:&#34;udp&#34;,
+        &#34;inital_delay_min&#34;:&#34;10&#34;,
+        &#34;inital_delay_max&#34;:&#34;50&#34;,
+        &#34;repetitions_base_delay&#34;:&#34;50&#34;,
+        &#34;repetitions_max&#34;:&#34;3&#34;,
+        &#34;ttl&#34;:&#34;3&#34;,
+        &#34;cyclic_off_delay&#34;:&#34;1000&#34;,
+        &#34;request_response_delay&#34;:&#34;30&#34;
+    }
+}                                                          24,9-16       All
+</code></pre></td></tr></table>
+</div>
+</div></div><div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Janyd</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"valine":{"appId":"cIRpq8figzQxyGz5LyAdUahJ-gzGzoHsz","appKey":"T9YWfgGhznKaXXx7TCLxzS3C","avatar":"robohash","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":true,"highlight":true,"lang":true,"meta":true,"pageSize":true,"placeholder":"说点什么吧...","recordIP":true,"visitor":true}},"data":{"id-1":"奋斗","id-2":"奋斗"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
