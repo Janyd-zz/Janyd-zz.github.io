@@ -15,20 +15,20 @@
     <description><![CDATA[linklist.h 1 2 3 4 5 6 7 8 9 10 11 12 13 14 typedef void LinkList; typedef struct _tag_LinkListNode { struct _tag_LinkListNode *next; }LinkListNode; LinkList *LinkList_Create(); void LinkList_Destroy(LinkList *list); void LinkList_Clear(LinkList *list); int LinkList_Length(LinkList *list); int LinkList_Insert(LinkList *list, LinkListNode *node, int pos); LinkListNode *LinkList_Get(LinkList *list, int pos); LinkListNode *LinkList_Delete(LinkList *list, int pos); linklist.c 1 2 3 4 5 6 typedef struct _tag_LinkList { LinkListNode header; int length; }TLinkList;]]></description>
 </item>
 <item>
+    <title>Linux配置</title>
+    <link>https://Janyd-zz.github.io/17_linux%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Sun, 19 Jan 2025 14:39:47 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://Janyd-zz.github.io/17_linux%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[1. Ubuntu1804更换软件源 清华大学开源软件镜像站 https://mirrors.tuna.tsinghua.edu.cn/ 使用帮助-&gt;选择“Ubuntu”-&gt;勾选相关选项，生成源list 将sou]]></description>
+</item>
+<item>
     <title>SOME/IP 概述</title>
     <link>https://Janyd-zz.github.io/16_someip_%E6%A6%82%E8%BF%B0/</link>
     <pubDate>Sun, 15 Sep 2024 21:29:41 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://Janyd-zz.github.io/16_someip_%E6%A6%82%E8%BF%B0/</guid>
     <description><![CDATA[0 总述 以下只是些东拼西凑的关于SOME/IP的简单介绍，如果想要基于协议进行项目开发，还请进一步查看参 考文献中标准协议的规范说明文档，进行系]]></description>
-</item>
-<item>
-    <title>Linux配置</title>
-    <link>https://Janyd-zz.github.io/17_linux%E9%85%8D%E7%BD%AE/</link>
-    <pubDate>Sat, 11 Jun 2022 14:39:47 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://Janyd-zz.github.io/17_linux%E9%85%8D%E7%BD%AE/</guid>
-    <description><![CDATA[1. Ubuntu1804更换软件源 清华大学开源软件镜像站 https://mirrors.tuna.tsinghua.edu.cn/ 使用帮助-&gt;选择“Ubuntu”-&gt;勾选相关选项，生成源list 将sou]]></description>
 </item>
 <item>
     <title>Autosar概念：Callout与Callback</title>
