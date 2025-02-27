@@ -5,9 +5,17 @@
         <description>C/C&#43;&#43; - 分类 - Janydの博客 - 在记录中成长自己</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>875392448@qq.com (Janyd)</managingEditor>
             <webMaster>875392448@qq.com (Janyd)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://Janyd-zz.github.io/categories/c/c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
+    <title>Circlelist</title>
+    <link>https://Janyd-zz.github.io/19_circlelist/</link>
+    <pubDate>Thu, 09 Jan 2025 14:39:47 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://Janyd-zz.github.io/19_circlelist/</guid>
+    <description><![CDATA[circlelist.h 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 typedef void CircleList; typedef struct _tag_CircleListNode { struct _tag_CircleListNode * next; }CircleListNode; CircleList* CircleList_Create(); void CircleList_Destroy(CircleList* list); void CircleList_Clear(CircleList* list); int CircleList_Length(CircleList* list); CircleListNode* CircleList_Get(CircleList* list, int pos); int CircleList_Insert(CircleList* list, CircleListNode* node, int pos); CircleListNode* CircleList_Delete(CircleList* list, int pos); CircleListNode* CircleList_DeleteNode(CircleList* list, CircleListNode* node); CircleListNode* CircleList_Reset(CircleList* list); CircleListNode* CircleList_Current(TCircleList* list);]]></description>
+</item>
+<item>
     <title>Linklist</title>
     <link>https://Janyd-zz.github.io/18_linklist/</link>
-    <pubDate>Fri, 07 Feb 2025 14:39:47 &#43;0800</pubDate>
+    <pubDate>Tue, 07 Jan 2025 14:39:47 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://Janyd-zz.github.io/18_linklist/</guid>
     <description><![CDATA[linklist.h 1 2 3 4 5 6 7 8 9 10 11 12 13 14 typedef void LinkList; typedef struct _tag_LinkListNode { struct _tag_LinkListNode *next; }LinkListNode; LinkList *LinkList_Create(); void LinkList_Destroy(LinkList *list); void LinkList_Clear(LinkList *list); int LinkList_Length(LinkList *list); int LinkList_Insert(LinkList *list, LinkListNode *node, int pos); LinkListNode *LinkList_Get(LinkList *list, int pos); LinkListNode *LinkList_Delete(LinkList *list, int pos); linklist.c 1 2 3 4 5 6 typedef struct _tag_LinkList { LinkListNode header; int length; }TLinkList;]]></description>
