@@ -2,12 +2,15 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://Janyd-zz.github.io/</loc><lastmod>2025-01-27T15:51:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://Janyd-zz.github.io/24_linkqueue/</loc><lastmod>2025-01-27T15:51:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://Janyd-zz.github.io/posts/</loc><lastmod>2025-01-27T15:51:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://Janyd-zz.github.io/23_seqqueue/</loc><lastmod>2025-01-25T15:51:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://Janyd-zz.github.io/22_linkstack/</loc><lastmod>2025-01-20T15:51:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://Janyd-zz.github.io/categories/</loc><lastmod>2025-01-19T15:51:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://Janyd-zz.github.io/</loc><lastmod>2025-01-19T15:51:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://Janyd-zz.github.io/tags/linux/</loc><lastmod>2025-01-19T15:51:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://Janyd-zz.github.io/categories/linux/</loc><lastmod>2025-01-19T15:51:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://Janyd-zz.github.io/17_linux%E9%85%8D%E7%BD%AE/</loc><lastmod>2025-01-19T15:51:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://Janyd-zz.github.io/posts/</loc><lastmod>2025-01-19T15:51:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://Janyd-zz.github.io/21_seqstack/</loc><lastmod>2025-01-19T15:51:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://Janyd-zz.github.io/tags/</loc><lastmod>2025-01-19T15:51:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://Janyd-zz.github.io/20_dlinklist/</loc><lastmod>2025-01-13T15:51:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>

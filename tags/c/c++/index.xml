@@ -5,6 +5,30 @@
         <description>C/C&#43;&#43; - 标签 - Janydの博客 - 在记录中成长自己</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>875392448@qq.com (Janyd)</managingEditor>
             <webMaster>875392448@qq.com (Janyd)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://Janyd-zz.github.io/tags/c/c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
+    <title>Linkqueue</title>
+    <link>https://Janyd-zz.github.io/24_linkqueue/</link>
+    <pubDate>Mon, 27 Jan 2025 14:39:47 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://Janyd-zz.github.io/24_linkqueue/</guid>
+    <description><![CDATA[linklist.h 1 2 3 4 5 6 7 8 9 10 11 12 13 14 typedef void LinkList; typedef struct _tag_LinkListNode { struct _tag_LinkListNode *next; }LinkListNode; LinkList *LinkList_Create(); void LinkList_Destroy(LinkList *list); void LinkList_Clear(LinkList *list); int LinkList_Length(LinkList *list); int LinkList_Insert(LinkList *list, LinkListNode *node, int pos); LinkListNode *LinkList_Get(LinkList *list, int pos); LinkListNode *LinkList_Delete(LinkList *list, int pos); linkqueue.h 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]]></description>
+</item>
+<item>
+    <title>Seqqueue</title>
+    <link>https://Janyd-zz.github.io/23_seqqueue/</link>
+    <pubDate>Sat, 25 Jan 2025 14:39:47 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://Janyd-zz.github.io/23_seqqueue/</guid>
+    <description><![CDATA[seqlist.h 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 typedef void SeqList; typedef void SeqListNode; SeqList* SeqList_Create(int capacity); void SeqList_Destroy(SeqList* list); void SeqList_Clear(SeqList* list); int SeqList_Length(SeqList* list); int SeqList_Capacity(SeqList* list); int SeqList_Insert(SeqList* list, SeqListNode* node, int pos); SeqListNode* SeqList_Get(SeqList* list, int pos); SeqListNode* SeqList_Delete(SeqList* list, int pos); seqqueue.h 1 2 3 4 5 6 7 8 9 10 11 12]]></description>
+</item>
+<item>
+    <title>Linkstack</title>
+    <link>https://Janyd-zz.github.io/22_linkstack/</link>
+    <pubDate>Mon, 20 Jan 2025 14:39:47 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://Janyd-zz.github.io/22_linkstack/</guid>
+    <description><![CDATA[linklist.h 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 typedef struct _tag_LinkListNode { struct _tag_LinkListNode *next; }LinkListNode; typedef struct _tag_LinkList { LinkListNode header; int length; }TLinkList; TLinkList *LinkList_Create(); void LinkList_Destroy(TLinkList *list); void LinkList_Clear(TLinkList *list); int LinkList_Length(TLinkList *list); int LinkList_Insert(TLinkList *list, LinkListNode *node, int pos); LinkListNode *LinkList_Get(TLinkList *list, int pos); LinkListNode *LinkList_Delete(TLinkList *list, int pos); linkstack.h 1 2 3 4]]></description>
+</item>
+<item>
     <title>Seqstack</title>
     <link>https://Janyd-zz.github.io/21_seqstack/</link>
     <pubDate>Sun, 19 Jan 2025 14:39:47 &#43;0800</pubDate>
@@ -18,7 +42,7 @@
     <pubDate>Mon, 13 Jan 2025 14:39:47 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://Janyd-zz.github.io/20_dlinklist/</guid>
-    <description><![CDATA[dlinklist.h 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 typedef void DLinkList; typedef struct _tag_DLinkListNode { struct _tag_DLinkListNode * next; struct _tag_DLinkListNode * pre; }DLinkListNode;//小圆点 DLinkList *DLinkList_Ceate(); void DLinkList_Destroy(DLinkList* list); void DLinkList_Clear(DLinkList* list); int DLinkList_Length(DLinkList* list);]]></description>
+    <description><![CDATA[dlinklist.h 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 typedef void DLinkList; typedef struct _tag_DLinkListNode { struct _tag_DLinkListNode * next; struct _tag_DLinkListNode * pre; }DLinkListNode;//小圆点 DLinkList *DLinkList_Ceate(); void DLinkList_Destroy(DLinkList* list); void DLinkList_Clear(DLinkList* list); int DLinkList_Length(DLinkList* list); DLinkListNode* DLinkList_Get(DLinkList*]]></description>
 </item>
 <item>
     <title>Circlelist</title>
